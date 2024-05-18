@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/test-utils/module'],
+  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/test-utils/module', '@nuxtjs/supabase'],
   app: {
     head: {
       title: 'FeedX.ai',
@@ -16,5 +16,8 @@ export default defineNuxtConfig({
   css: ['~/app.css'],
   image: {
     format: ['webp', 'avif'],
+  },
+  supabase: {
+    redirect: false,
   },
 })

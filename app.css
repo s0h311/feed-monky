@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+  @apply text-4xl font-bold tablet:text-5xl;
+}
+
+mark {
+  @apply bg-accent text-base-100;
+}

@@ -1,12 +1,12 @@
 <template>
   <section>
-    <h2 class="text-3xl mb-5">{{ title }}</h2>
+    <h2 class="mb-5 text-3xl">{{ title }}</h2>
 
-    <p class="max-w-lg tracking-wide leading-7 mb-20">
+    <p class="mb-20 max-w-lg leading-7 tracking-wide">
       {{ text }}
     </p>
 
-    <ul class="grid gap-20 tablet:grid-cols-3 w-fit mx-auto text-center">
+    <ul class="mx-auto grid w-fit gap-20 text-center tablet:grid-cols-3">
       <li
         v-for="({ name, role, image, link }, index) in people"
         :key="'person' + index"
@@ -16,7 +16,7 @@
           target="_blank"
         >
           <NuxtImg
-            class="rounded-full mx-auto mb-5 size-28 object-cover tablet:hover:ring-4 p-2"
+            class="mx-auto mb-5 size-28 rounded-full object-cover p-2 tablet:hover:ring-4"
             :src="image"
             width="96"
             height="96"

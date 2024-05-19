@@ -1,10 +1,10 @@
 <template>
   <UIHero
-    title="Understand your Customers in Seconds not Hours "
-    text="Collect feedback from your users and enjoy the "
+    title="Understand your Customers in <mark>&nbsp;Seconds&nbsp;</mark> not Hours"
+    text="Powered by auto summarized feedbacks"
     :gains
     :cta="{
-      title: 'Wie funktionert\'s ?',
+      title: 'How it works?',
       path: '/#demo',
     }"
   />
@@ -12,8 +12,8 @@
 
 <script setup lang="ts">
 const gains = [
-  'Rechnungen einfach per E-Mail senden',
-  'Vorgespeicherte Positionen nutzen',
-  'Immer den Überblick behalten',
+  'Feedbacks get automatically summarized',
+  'Using cutting edge custom AI',
+  'Saves you hours of reading long feedbacks',
 ]
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <aside class="flex flex-col gap-5 p-10 border-r h-screen w-fit">
+  <aside class="flex h-screen w-fit flex-col gap-5 border-r p-10">
     <NuxtLink
       v-for="{ title, path } in links"
       :key="path"
-      class="px-3 py-2 rounded-lg"
+      class="rounded-lg px-3 py-2"
       :class="route.path === path ? 'bg-neutral text-base-200' : 'hover:bg-base-200'"
       :to="path"
     >
@@ -12,12 +12,12 @@
 
     <div
       v-if="(bottomLinks && bottomLinks.length > 0) || (bottomBtns && bottomBtns.length > 0)"
-      class="grid justify-items-start gap-2 text-sm mt-auto"
+      class="mt-auto grid justify-items-start gap-2 text-sm"
     >
       <NuxtLink
         v-for="{ title, path } in bottomLinks"
         :key="path"
-        class="px-3 py-2 rounded-lg"
+        class="rounded-lg px-3 py-2"
         :class="route.path === path ? 'bg-neutral text-base-200' : 'hover:bg-base-200'"
         :to="path"
       >
@@ -27,7 +27,7 @@
       <button
         v-for="(btn, btnIndex) in bottomBtns"
         :key="'btn' + btnIndex"
-        class="px-3 py-2 rounded-lg hover:bg-base-200"
+        class="rounded-lg px-3 py-2 hover:bg-base-200"
         @click="btn.handleFn"
       >
         {{ btn.title }}

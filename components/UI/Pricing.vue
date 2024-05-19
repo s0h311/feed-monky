@@ -1,19 +1,19 @@
 <template>
   <div class="space-y-10">
-    <h2 class="text-3xl text-center">{{ title }}</h2>
+    <h2 class="text-center text-3xl">{{ title }}</h2>
 
     <div class="grid grid-cols-2 gap-20">
       <div
         v-for="(option, indexPricing) in pricingOptions"
         :key="'option' + indexPricing"
-        class="border-2 p-8 rounded-xl space-y-10 shadow-md"
+        class="space-y-10 rounded-xl border-2 p-8 shadow-md"
         :class="option.isPremium ? 'border-primary' : 'border-neutral'"
       >
-        <h3 class="font-bold text-lg">{{ option.title }}</h3>
+        <h3 class="text-lg font-bold">{{ option.title }}</h3>
 
         <div class="space-y-2">
           <p
-            class="line-through text-sm"
+            class="text-sm line-through"
             :class="option.oldPrice ? '' : 'invisible'"
           >
             {{ option.oldPrice }}€

@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 text-base-300 text-sm">
+  <footer class="bg-gray-900 text-sm text-base-300">
     <div class="flex justify-evenly py-20">
       <slot />
 

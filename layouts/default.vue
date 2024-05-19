@@ -1,6 +1,6 @@
 <template>
-  <div class="px-5 py-3 tablet:px-10 tablet:py-7 laptop:px-[10dvw] space-y-10">
-    <HomeNavbar class="tablet:px-[10dvw]" />
+  <div class="grid gap-5 px-5 py-3 tablet:gap-10 tablet:px-10 tablet:py-5 laptop:px-[10dvw]">
+    <HomeNavbarDecider class="tablet:px-[10dvw]" />
 
     <main>
       <slot />

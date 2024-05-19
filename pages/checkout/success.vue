@@ -10,7 +10,7 @@
     </div>
 
     <NuxtImg
-      class="rounded-lg -scale-x-100"
+      class="-scale-x-100 rounded-lg"
       src="alvan-nee-brFsZ7qszSY.jpg"
       :width="500"
       :height="700"

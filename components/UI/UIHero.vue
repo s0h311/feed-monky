@@ -2,13 +2,13 @@
   <div class="hero">
     <div class="hero-content text-center">
       <div class="space-y-3">
-        <h1 class="text-5xl font-bold">{{ title }}</h1>
+        <h1 v-html="title" />
 
         <h2 class="text-3xl">{{ text }}</h2>
 
         <ul
           v-if="gains"
-          class="py-6 w-fit mx-auto"
+          class="mx-auto w-fit py-6"
         >
           <li
             v-for="(gain, index) in gains"

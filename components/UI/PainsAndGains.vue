@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="text-3xl text-center mb-14">{{ title }}</h2>
+    <h2 class="mb-14 text-center text-3xl">{{ title }}</h2>
 
     <div class="grid grid-cols-2 gap-10">
-      <ul class="bg-red-100 p-5 rounded-lg shadow-md">
+      <ul class="rounded-lg bg-red-100 p-5 shadow-md">
         <li
           v-for="(pain, index) in pains"
           :key="'pain' + index"
@@ -13,7 +13,7 @@
         </li>
       </ul>
 
-      <ul class="bg-green-100 p-5 rounded-lg shadow-md">
+      <ul class="rounded-lg bg-green-100 p-5 shadow-md">
         <li
           v-for="(gain, index) in gains"
           :key="'gain' + index"

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-7 place-items-center">
+  <div class="grid place-items-center gap-7">
     <label class="input input-bordered flex items-center gap-2">
       <IconEmail />
       <input

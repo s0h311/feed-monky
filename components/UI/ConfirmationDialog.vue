@@ -1,7 +1,7 @@
 <template>
   <dialog
     ref="confirmationDialogRef"
-    class="p-4 rounded-lg space-y-5 w-[30%]"
+    class="w-[30%] space-y-5 rounded-lg p-4"
   >
     <h2>{{ title }}</h2>
 

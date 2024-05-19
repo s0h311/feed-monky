@@ -1,9 +1,9 @@
 <template>
   <section class="flex items-center gap-20">
     <div class="lg:max-w-lg 2xl:max-w-xl">
-      <h2 class="text-5xl mb-5">{{ title }}</h2>
+      <h2 class="mb-5 text-5xl">{{ title }}</h2>
 
-      <p class="tracking-wide leading-7">
+      <p class="leading-7 tracking-wide">
         {{ text }}
       </p>
     </div>

@@ -1,10 +1,12 @@
 <template>
-  <div class="grid place-items-center gap-52 mt-52">
+  <div class="grid place-items-center tablet:mt-52 tablet:gap-52">
     <HomeHero />
+    <!--
     <HomePainsAndGains />
     <HomeDemo />
     <HomePricing />
     <HomeAbout />
+    -->
   </div>
 </template>
 

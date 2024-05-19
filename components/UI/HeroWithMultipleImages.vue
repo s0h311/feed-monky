@@ -1,7 +1,7 @@
 <template>
-  <section class="flex flex-col items-center gap-20 tablet:flex-row">
+  <section class="flex flex-col items-center gap-20 desktop:flex-row">
     <div class="lg:max-w-lg 2xl:max-w-xl">
-      <h2 class="mb-5 text-3xl tablet:text-5xl">{{ title }}</h2>
+      <h2 class="mb-3 text-3xl tablet:text-5xl">{{ title }}</h2>
 
       <p class="leading-7 tracking-wide">
         {{ text }}

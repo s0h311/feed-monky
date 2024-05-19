@@ -6,7 +6,7 @@
   />
 
   <HomeNavbarDesktop
-    class="max-[767px]:hidden"
+    class="max-[767px]:hidden desktop:px-[10%]"
     :links
     :additional-links
   />

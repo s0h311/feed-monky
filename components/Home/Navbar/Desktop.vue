@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar grid grid-cols-3 place-items-center px-10">
+  <nav class="navbar grid place-items-center desktop:grid-cols-3">
     <HomeLogo />
 
-    <div class="space-x-7">
+    <div class="space-x-3 desktop:space-x-7">
       <NuxtLink
         v-for="link in links"
         :key="link.path"
@@ -40,3 +40,9 @@ type Props = {
 
 defineProps<Props>()
 </script>
+
+<style scoped>
+.navbar {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+</style>

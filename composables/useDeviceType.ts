@@ -1,4 +1,4 @@
-type DeviceType = 'mobile' | 'tablet' | 'laptop' | 'desktop'
+type DeviceType = 'mobile' | 'tablet' | 'desktop'
 
 export function useDeviceType(): Ref<DeviceType> {
   const deviceType = ref<DeviceType>('mobile')
@@ -8,7 +8,6 @@ export function useDeviceType(): Ref<DeviceType> {
 
     if (width < 768) deviceType.value = 'mobile'
     else if (width < 1024) deviceType.value = 'tablet'
-    else if (width < 1850) deviceType.value = 'laptop'
     else deviceType.value = 'desktop'
   })
 

@@ -1,7 +1,7 @@
 <template>
   <div
     id="about"
-    class="space-y-10"
+    class="space-y-20"
   >
     <UIHeroWithMultipleImages
       title="We make technology make your life easier."

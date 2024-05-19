@@ -6,7 +6,7 @@
     <h2 class="text-center text-3xl">How it works</h2>
 
     <iframe
-      class="aspect-video w-full rounded-lg shadow-md outline-none tablet:w-[50dvw]"
+      class="aspect-video w-full rounded-lg shadow-md outline-none tablet:w-[70dvw] desktop:w-[50dvw]"
       src="https://www.youtube.com/embed/bKDdT_nyP54?si=QYNp4bN9opyFfGRy"
       title="Demo video"
       frameborder="0"

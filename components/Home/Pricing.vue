@@ -1,9 +1,9 @@
 <template>
   <UIPricing
     id="pricing"
-    title="Preise"
+    title="Prices"
     :pricing-options="pricingOptions"
-    cta-title="Jetzt holen"
+    cta-title="Get it"
     :handle-fn="handleGoToCheckout"
   />
 </template>

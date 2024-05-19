@@ -1,8 +1,8 @@
 <template>
   <section>
-    <h2 class="mb-5">{{ title }}</h2>
+    <h2 class="mb-3">{{ title }}</h2>
 
-    <p class="mb-10 max-w-lg leading-7 tracking-wide tablet:mb-20">
+    <p class="mb-10 max-w-lg leading-7 tracking-wide desktop:mb-20">
       {{ text }}
     </p>
 

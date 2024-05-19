@@ -1,5 +1,5 @@
 <template>
-  <div class="grid place-items-center gap-20 tablet:mt-52 tablet:gap-52">
+  <div class="grid place-items-center gap-20 tablet:mt-20 tablet:gap-36 desktop:mt-52 desktop:gap-52">
     <HomeHero />
     <HomePainsAndGains />
     <HomeDemo />
@@ -7,5 +7,3 @@
     <HomeAbout />
   </div>
 </template>
-
-<script setup lang="ts"></script>

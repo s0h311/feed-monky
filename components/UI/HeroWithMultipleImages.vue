@@ -1,7 +1,7 @@
 <template>
-  <section class="flex items-center gap-20">
+  <section class="flex flex-col items-center gap-20 tablet:flex-row">
     <div class="lg:max-w-lg 2xl:max-w-xl">
-      <h2 class="mb-5 text-5xl">{{ title }}</h2>
+      <h2 class="mb-5 text-3xl tablet:text-5xl">{{ title }}</h2>
 
       <p class="leading-7 tracking-wide">
         {{ text }}
@@ -12,7 +12,7 @@
       v-if="images.length >= 5"
       class="flex gap-8"
     >
-      <div class="pt-[40%]">
+      <div class="hidden pt-[40%] tablet:block">
         <NuxtImg
           :src="images[0]"
           width="176"

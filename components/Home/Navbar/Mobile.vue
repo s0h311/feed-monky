@@ -12,7 +12,7 @@
     </div>
 
     <aside
-      class="absolute top-0 h-screen w-3/4 rounded-r bg-neutral p-4 text-base-200 duration-300 ease-out"
+      class="absolute top-0 z-10 h-screen w-3/4 rounded-r bg-neutral p-4 text-base-200 duration-300 ease-out"
       :class="showSideMenu ? 'left-0' : 'left-[-100%]'"
     >
       SIDEBAR

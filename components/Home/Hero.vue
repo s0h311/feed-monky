@@ -4,7 +4,7 @@
     text="Powered by auto summarized feedbacks"
     :gains
     :cta="{
-      title: 'How it works?',
+      title: 'How it works',
       path: '/#demo',
     }"
   />

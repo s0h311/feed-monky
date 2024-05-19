@@ -1,12 +1,12 @@
 <template>
   <section>
-    <h2 class="mb-5 text-3xl">{{ title }}</h2>
+    <h2 class="mb-5">{{ title }}</h2>
 
-    <p class="mb-20 max-w-lg leading-7 tracking-wide">
+    <p class="mb-10 max-w-lg leading-7 tracking-wide tablet:mb-20">
       {{ text }}
     </p>
 
-    <ul class="mx-auto grid w-fit gap-20 text-center tablet:grid-cols-3">
+    <ul class="mx-auto grid w-fit gap-10 text-center tablet:grid-cols-3 tablet:gap-20">
       <li
         v-for="({ name, role, image, link }, index) in people"
         :key="'person' + index"

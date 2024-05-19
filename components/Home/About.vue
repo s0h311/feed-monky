@@ -4,11 +4,11 @@
     class="space-y-10"
   >
     <UIHeroWithMultipleImages
-      title="Wir nutzen Technologie um dein Leben einfacher zu machen"
+      title="We make technology make your life easier."
       text="
-      Tagtäglich machen wir uns Gedanken darüber, wie wir deinen Leben einfacher machen können.
-      Was wir am Besten können ist die Software-Entwicklung. Damit versuchen wir deine Arbeit zu erleichtern.
-      Wir sind von unseren Produkten überzeugt, denn wir entwickeln sie mit Spaß und denken an deine Bedürfnisse.
+      We are passionate about simplifying your life through software.
+      We believe technology should empower, not complicate.
+      That's why we develop user-friendly solutions with your needs at heart, putting the joy of creation back into your hands.
     "
       :images="[
         'annie-spratt-MChSQHxGZrQ.jpg',
@@ -20,8 +20,8 @@
     />
 
     <UIOurTeamList
-      title="Unser Team"
-      text="Jede Menge Kreativität und Leidenschaft. Wir lieben unsere Arbeit und die Herausforderung."
+      title="Our Team"
+      text="Tons of creativity and passion. We love tech and the thrill."
       :people="[
         {
           name: 'Maximilian Buchmann',
@@ -42,5 +42,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts"></script>

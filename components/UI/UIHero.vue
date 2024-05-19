@@ -1,32 +1,30 @@
 <template>
-  <div class="hero">
-    <div class="hero-content text-center">
-      <div class="space-y-3">
-        <h1 v-html="title" />
+  <div class="hero-content text-center">
+    <div class="space-y-3">
+      <h1 v-html="title" />
 
-        <h2 class="text-3xl">{{ text }}</h2>
+      <h3>{{ text }}</h3>
 
-        <ul
-          v-if="gains"
-          class="mx-auto w-fit py-6"
+      <ul
+        v-if="gains"
+        class="mx-auto w-fit py-6"
+      >
+        <li
+          v-for="(gain, index) in gains"
+          :key="'gain' + index"
+          class="flex gap-2 text-start tablet:items-center"
         >
-          <li
-            v-for="(gain, index) in gains"
-            :key="'gain' + index"
-            class="flex items-center gap-2"
-          >
-            <IconCheck stroke-color="stroke-primary" /> {{ gain }}
-          </li>
-        </ul>
+          <IconCheck stroke-color="stroke-primary" /> {{ gain }}
+        </li>
+      </ul>
 
-        <NuxtLink
-          v-if="cta"
-          class="btn btn-primary"
-          :to="cta.path"
-        >
-          {{ cta.title }}
-        </NuxtLink>
-      </div>
+      <NuxtLink
+        v-if="cta"
+        class="btn btn-primary"
+        :to="cta.path"
+      >
+        {{ cta.title }}
+      </NuxtLink>
     </div>
   </div>
 </template>

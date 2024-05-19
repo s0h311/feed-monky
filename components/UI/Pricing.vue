@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-10">
-    <h2 class="text-center text-3xl">{{ title }}</h2>
+    <h2 class="text-center">{{ title }}</h2>
 
-    <div class="grid grid-cols-2 gap-20">
+    <div class="grid gap-20 tablet:grid-cols-2">
       <div
         v-for="(option, indexPricing) in pricingOptions"
         :key="'option' + indexPricing"

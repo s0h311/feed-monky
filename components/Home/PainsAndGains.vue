@@ -1,24 +1,22 @@
 <template>
   <UIPainsAndGains
-    title="Es macht dir das Leben einfacher"
-    :pains="pains"
-    :gains="gains"
+    title="Why have it?"
+    :pains
+    :gains
   />
 </template>
 
 <script setup lang="ts">
 const pains = [
-  'Immer die gleichen Positionen eintippen',
-  'Immer wieder die gleiche Adressen eintippen',
-  'Unstrukturiert',
-  'Manuell per E-Mail senden',
+  'Wasting time reading every single feedback',
+  'Harder to understand your customers',
+  'Unable to start building features your users value',
 ]
 
 const gains = [
-  'Vorgespeicherte Positionen',
-  'Vorgespeicherte Kunden',
-  'Seriöse Struktur',
-  'Einfach per E-Mail senden',
-  'Automatische Rechnungsnummer',
+  'Feedbacks get automatically categorized',
+  'Read the summaries in seconds',
+  'Understand your customers needs',
+  'Start shipping features faster',
 ]
 </script>

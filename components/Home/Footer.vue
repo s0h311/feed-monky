@@ -10,20 +10,20 @@
 
 <script setup lang="ts">
 const otherProdcutsLinks = {
-  title: 'Andere Produkte',
+  title: 'Other products',
   links: [
     {
-      title: 'FeedX AI',
-      path: 'feedx.ai',
+      title: 'DeineRechnung.com',
+      path: 'https://deinerechnung.com',
     },
   ],
 }
 
 const contactLinks = {
-  title: 'Kontakt',
+  title: 'Contact',
   links: [
     {
-      title: 'Hilfe',
+      title: 'Help',
       path: '/help',
     },
     {
@@ -34,18 +34,18 @@ const contactLinks = {
 }
 
 const legalLinks = {
-  title: 'Rechtlich',
+  title: 'Legal',
   links: [
     {
-      title: 'Impressum',
+      title: 'Imprint',
       path: '/imprint',
     },
     {
-      title: 'Datenschutz',
+      title: 'Privacy policy',
       path: '/privacyPolicy',
     },
     {
-      title: 'AGB',
+      title: 'Terms',
       path: '/terms',
     },
   ],

@@ -1,9 +1,9 @@
 <template>
   <footer class="bg-gray-900 text-sm text-base-300">
-    <div class="flex justify-evenly py-20">
+    <div class="flex flex-col justify-evenly gap-10 p-7 tablet:flex-row tablet:gap-0 desktop:py-20">
       <slot />
 
-      <div class="flex gap-32">
+      <div class="flex flex-row flex-wrap gap-x-20 gap-y-10 desktop:gap-32">
         <ul class="flex flex-col gap-3">
           <p class="text-base-100">{{ linksColumn1.title }}</p>
 

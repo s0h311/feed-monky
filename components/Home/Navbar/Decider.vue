@@ -17,15 +17,15 @@ const user = ref<boolean>(false)
 
 const links = [
   {
-    title: 'Preise',
+    title: 'Pricing',
     path: '/#pricing',
   },
   {
-    title: "Wie funktioniert's",
+    title: 'How it works',
     path: '/#demo',
   },
   {
-    title: 'Wer sind wir',
+    title: 'About us',
     path: '/#about',
   },
 ]

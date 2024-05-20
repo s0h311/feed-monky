@@ -20,4 +20,9 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
   },
+  runtimeConfig: {
+    public: {
+      feedxApiUrl: '', // gets overriden by .env
+    },
+  },
 })

@@ -1,7 +1,7 @@
 <template>
   <UIPricing
     id="pricing"
-    title="Prices"
+    title="Pricing"
     :pricing-options="pricingOptions"
     cta-title="Get it"
     :handle-fn="handleGoToCheckout"
@@ -11,32 +11,51 @@
 <script setup lang="ts">
 import type { PricingOption } from '../UI/Pricing.vue'
 
-const pricingOptions: PricingOption[] = [
+const config = useRuntimeConfig()
+
+const pricingOptions: (PricingOption & { priceId: string; isMetered?: boolean })[] = [
   {
-    title: 'Monatlich',
-    oldPrice: 9.99,
-    newPrice: 7.99,
+    title: 'Starter',
+    newPrice: 9.99,
     paymentPeriod: 'monthly',
-    paymentPeriodText: 'monatlich',
-    benefits: ['Automatische Verbesserungen', '24/7 Kundenservice', 'Flexibel monatlich zahlen'],
+    paymentPeriodText: 'monthly',
+    benefits: ['Continual improvements', '24/7 Customer service', 'Best for small businesses'],
     isPremium: false,
+    description: `
+    With this plan feedbacks don't get summarized. You can switch to Pro plan anytime.
+    `,
+    priceId: 'price_1PIR0aBzByKpK824DmpXhyT2',
   },
   {
-    title: 'Über 50% Sparen',
-    oldPrice: 69.99,
-    newPrice: 39.99,
-    paymentPeriod: 'yearly',
-    paymentPeriodText: 'jährlich',
-    benefits: ['Automatische Verbesserungen', '24/7 Kundenservice', 'Einmal zahlen, für immer benutzen'],
+    title: 'Pro <small> - pay as you go</small>',
+    newPrice: 14.99,
+    paymentPeriod: 'monthly',
+    paymentPeriodText: 'monthly',
+    benefits: [
+      'Continual improvements',
+      '24/7 Customer service',
+      'Best for growing businesses',
+      'Powered by cutting edge AI',
+    ],
     isPremium: true,
+    description: `
+    First 20 feedbacks get summarized for free.
+    Starting from the 21st each feedback gets summarized for 0.05$.
+    You can switch to Starter plan anytime.
+    `,
+    priceId: 'price_1PITIqBzByKpK824ritaxF45',
   },
 ]
 
 async function handleGoToCheckout(pricingOptionIndex: number): Promise<void> {
-  const stripeCheckoutUrl = await $fetch('/api/stripe/checkout', {
+  const pricingOption = pricingOptions[pricingOptionIndex]
+
+  const stripeCheckoutUrl: string = await $fetch(`${config.public.feedxApiUrl}/api/stripe/checkout`, {
     method: 'post',
     body: {
-      paymentPeriod: pricingOptions[pricingOptionIndex].paymentPeriod,
+      priceId: pricingOption.priceId,
+      paymentPeriod: pricingOption.paymentPeriod,
+      isMetered: pricingOption.isMetered,
     },
   })
 

@@ -6,15 +6,18 @@
       <div
         v-for="(option, indexPricing) in pricingOptions"
         :key="'option' + indexPricing"
-        class="space-y-10 rounded-xl border-2 p-8 shadow-md"
+        class="flex min-w-[17dvw] flex-col gap-10 rounded-xl border-2 p-8 shadow-md"
         :class="option.isPremium ? 'border-primary' : 'border-neutral'"
       >
-        <h3 class="text-lg font-bold">{{ option.title }}</h3>
+        <h3
+          class="text-xl font-semibold"
+          v-html="option.title"
+        />
 
         <div class="space-y-2">
           <p
+            v-if="option.oldPrice"
             class="text-sm line-through"
-            :class="option.oldPrice ? '' : 'invisible'"
           >
             {{ option.oldPrice }}€
           </p>
@@ -31,9 +34,16 @@
             :key="'benefit' + indexBenetifs"
             class="flex items-center gap-2 text-sm"
           >
-            <IconCheck /> {{ benefit }}
+            <IconCheck stroke-color="stroke-primary" /> {{ benefit }}
           </li>
         </ul>
+
+        <p
+          v-if="option.description"
+          class="mt-auto max-w-xs text-xs text-gray-400"
+        >
+          {{ option.description }}
+        </p>
 
         <UICta
           class="w-full"
@@ -51,12 +61,13 @@
 <script setup lang="ts">
 export type PricingOption = {
   title: string
-  oldPrice: number
+  oldPrice?: number
   newPrice: number
   paymentPeriod: 'monthly' | 'yearly' | 'lifetime'
   paymentPeriodText: string
   benefits: string[]
   isPremium: boolean
+  description?: string
 }
 
 type Props = {

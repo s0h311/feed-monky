@@ -3,7 +3,7 @@ import type { Database } from '~/types/databaseTypes'
 import type { Site } from '~/types/types'
 
 export async function useSite(): Promise<Ref<Site | null>> {
-  const site = useState<Site | null>(() => null)
+  const site = useState<Site | null>('site', () => null)
 
   if (site.value) {
     return site

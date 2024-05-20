@@ -34,7 +34,9 @@
 import logger from '~/utils/logger'
 
 definePageMeta({
-  middleware: ['not-auth'],
+  middleware: [
+    //  'not-auth'
+  ],
 })
 
 useSeoMeta({
@@ -67,6 +69,6 @@ async function handleLogin(): Promise<void> {
   }
 
   isLoading.value = false
-  navigateTo('/dashboard/newInvoice')
+  navigateTo('/dashboard')
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <iframe
-    style="position: absolute; right: 10%; bottom: 0"
+    style="position: absolute; right: 0; bottom: 0; width: 100dvw; height: 100dvh"
     :src
   ></iframe>
 </template>
@@ -8,5 +8,5 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 
-const src = computed(() => `${config.public.feedxApiUrl}/api/template?siteId=a52f1d88-3bd3-420a-8e40-a8f0c371ec56`)
+const src = computed(() => `${config.public.feedxApiUrl}/api/template?siteId=4dabc61f-4c0f-4c29-88ed-052731fcd0ed`)
 </script>

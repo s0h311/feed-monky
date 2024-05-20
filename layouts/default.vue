@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex h-screen flex-col">
     <div class="mb-20 grid gap-20 px-5 pt-5 tablet:gap-10 tablet:px-[7%] desktop:px-[10dvw]">
       <HomeNavbarDecider />
 
@@ -8,6 +8,6 @@
       </main>
     </div>
 
-    <HomeFooter />
+    <HomeFooter class="mt-auto" />
   </div>
 </template>

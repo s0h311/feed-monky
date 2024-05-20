@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-const user = ref<boolean>(false)
+const user = useSupabaseUser()
 
 const links = [
   {

@@ -1,17 +1,46 @@
 <template>
   <h1 class="mb-10 text-xl">Embedding</h1>
 
-  <div class="w-fit rounded bg-neutral p-10">
-    <p class="text-base-100">
-      &lt;iframe src="{{ iframeSrc }}" <br />
-      style="position: absolute; right: 0; bottom: 0; width: 100dvw; height: 100dvh"&gt;&lt;/iframe&gt;
-    </p>
+  <div class="relative max-w-2xl rounded-lg bg-[#2d2d2d] px-5 py-4">
+    <button
+      class="absolute right-3 top-3 rounded-full p-0.5 hover:animate-pulse"
+      @click="copyCode"
+    >
+      <IconCopy stroke-color="stroke-white" />
+    </button>
+
+    <code
+      class="language-html m-0 !border-none p-0 !shadow-none"
+      v-html="prism.highlight(code, prism.languages.html, 'html')"
+    />
   </div>
+
+  <UIToast
+    type="success"
+    message="Copied successfully"
+  />
 </template>
 
 <script setup lang="ts">
+import prism from 'prismjs'
+import 'prismjs/themes/prism-tomorrow.min.css'
+
 const config = useRuntimeConfig()
 const site = (await useSite()).value!
 
 const iframeSrc = computed(() => `${config.public.feedxApiUrl}/api/template?siteId=${site.id}`)
+const code = computed(() => {
+  return (
+    '<iframe' +
+    ' src="' +
+    iframeSrc.value +
+    '" ' +
+    'style="position: absolute; right: 0; bottom: 0; width: 100dvw; height: 100dvh">' +
+    '</iframe>'
+  )
+})
+
+function copyCode(): void {
+  navigator.clipboard.writeText(code.value)
+}
 </script>

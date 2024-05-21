@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 text-sm text-base-300">
+  <footer class="bg-neutral text-sm text-base-300">
     <div class="flex flex-col justify-evenly gap-10 p-7 tablet:flex-row tablet:gap-0 desktop:py-20">
       <slot />
 

@@ -14,7 +14,7 @@
           :key="'gain' + index"
           class="flex gap-2 text-start tablet:items-center"
         >
-          <IconCheck stroke-color="stroke-primary" /> {{ gain }}
+          <IconCheck stroke-color="stroke-green-500" /> {{ gain }}
         </li>
       </ul>
 

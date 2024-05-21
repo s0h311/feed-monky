@@ -30,3 +30,7 @@ thead tr,
 tbody tr {
   @apply *:px-5 *:py-1.5 *:text-start *:align-text-top;
 }
+
+.btn {
+  @apply rounded-md;
+}

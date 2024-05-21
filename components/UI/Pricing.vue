@@ -34,7 +34,7 @@
             :key="'benefit' + indexBenetifs"
             class="flex items-center gap-2 text-sm"
           >
-            <IconCheck stroke-color="stroke-primary" /> {{ benefit }}
+            <IconCheck stroke-color="stroke-green-500" /> {{ benefit }}
           </li>
         </ul>
 

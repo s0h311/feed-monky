@@ -14,11 +14,6 @@
       v-html="prism.highlight(code, prism.languages.html, 'html')"
     />
   </div>
-
-  <UIToast
-    type="success"
-    message="Copied successfully"
-  />
 </template>
 
 <script setup lang="ts">
@@ -27,6 +22,7 @@ import 'prismjs/themes/prism-tomorrow.min.css'
 
 const config = useRuntimeConfig()
 const site = (await useSite()).value!
+const toast = useToast()
 
 const iframeSrc = computed(() => `${config.public.feedxApiUrl}/api/template?siteId=${site.id}`)
 const code = computed(() => {
@@ -42,5 +38,6 @@ const code = computed(() => {
 
 function copyCode(): void {
   navigator.clipboard.writeText(code.value)
+  toast.success('Copied successfully')
 }
 </script>

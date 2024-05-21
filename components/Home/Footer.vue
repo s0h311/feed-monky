@@ -4,7 +4,7 @@
     :links-column2="contactLinks"
     :links-column3="legalLinks"
   >
-    <HomeLogo />
+    <HomeLogo class="bg-neutral-content text-neutral" />
   </UIFooter>
 </template>
 

@@ -107,29 +107,27 @@ ${message}
   displayAndRemove(container)
 }
 
-const defaultClasses = [
-  'absolute',
-  'right-5',
-  'top-[-100%]',
-  'z-10',
-  'flex',
-  'h-[70px]',
-  'w-[340px]',
-  'items-center',
-  'gap-2',
-  'rounded-lg',
-  'border',
-  'bg-opacity-5',
-  'p-5',
-  'text-sm',
-  'shadow-lg',
-  'duration-500',
-  'ease-in-out',
-]
-
 function getContainer(): HTMLDivElement {
   const container = document.createElement('div')
-  container.classList.add(...defaultClasses)
+  container.classList.add(
+    'absolute',
+    'right-5',
+    'top-[-100%]',
+    'z-10',
+    'flex',
+    'h-[50px]',
+    'w-[320px]',
+    'items-center',
+    'gap-2',
+    'rounded-lg',
+    'border',
+    'bg-opacity-5',
+    'p-5',
+    'text-sm',
+    'shadow-lg',
+    'duration-500',
+    'ease-in-out'
+  )
 
   return container
 }
@@ -139,7 +137,7 @@ function displayAndRemove(container: HTMLDivElement): void {
 
   setTimeout(() => {
     container.style.top = '20px'
-  }, 500)
+  }, 10)
 
   setTimeout(() => {
     container.style.top = '-100%'

@@ -4,6 +4,7 @@ import daisyui from 'daisyui'
 export default {
   content: [
     './components/**/*.{js,vue,ts}',
+    './composables/**/*.ts',
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',

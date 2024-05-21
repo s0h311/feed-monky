@@ -34,9 +34,7 @@
 import logger from '~/utils/logger'
 
 definePageMeta({
-  middleware: [
-    //  'not-auth'
-  ],
+  middleware: ['not-auth'],
 })
 
 useSeoMeta({

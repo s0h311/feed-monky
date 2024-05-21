@@ -22,7 +22,7 @@ import 'prismjs/themes/prism-tomorrow.min.css'
 
 const config = useRuntimeConfig()
 const site = (await useSite()).value!
-const toast = useToast()
+const toast = useToaster()
 
 const iframeSrc = computed(() => `${config.public.feedxApiUrl}/api/template?siteId=${site.id}`)
 const code = computed(() => {

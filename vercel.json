@@ -3,5 +3,11 @@
     "deploymentEnabled": {
       "main": false
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/private/cron/assignFeedbacks",
+      "schedule": "20 1 * * *"
+    }
+  ]
 }

@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/test-utils/module', '@nuxtjs/supabase'],
   app: {
     head: {
-      title: 'FeedX.ai',
+      title: 'Feed Monky',
     },
   },
   devtools: { enabled: true },

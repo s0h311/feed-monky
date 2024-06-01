@@ -1,0 +1,228 @@
+<html>
+  <head>
+    <style>
+      #feed-monky-button {
+        position: absolute;
+        right: 10%;
+        bottom: 0;
+
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        padding: 6px;
+        background-color: rgb(249 115 22);
+        color: white;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+      }
+
+      #feed-monky-button:hover {
+        background-color: white;
+        color: rgb(249 115 22);
+        outline: 2px solid rgb(249 115 22);
+      }
+
+      #feed-monky-dialog {
+        border: none;
+        border-radius: 8px;
+        padding: 40px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        button {
+          border: none;
+          background: none;
+          cursor: pointer;
+        }
+
+        .feed-monky-dialog-head {
+          display: grid;
+          place-items: center;
+          grid-auto-flow: column;
+          margin-bottom: 40px;
+
+          h2 {
+            margin-block: 0;
+          }
+
+          button {
+            justify-self: end;
+            width: fit-content;
+            height: fit-content;
+          }
+        }
+
+        form {
+          display: grid;
+          gap: 20px;
+          font-size: 14px;
+          margin-bottom: 0;
+
+          label {
+            margin-bottom: -15px;
+          }
+
+          input {
+            border-radius: 8px;
+            border: 1.5px solid black;
+            outline: none;
+            padding: 12px 16px;
+            width: fit-content;
+            color: #3f3f46;
+          }
+
+          textarea {
+            border-radius: 8px;
+            border: 1.5px solid black;
+            outline: none;
+            padding: 12px 16px;
+            min-width: 400px;
+            color: #3f3f46;
+          }
+
+          @media (max-width: 500px) {
+            textarea {
+              min-width: unset;
+            }
+          }
+
+          button {
+            justify-self: center;
+            border-radius: 8px;
+            padding: 8px 12px;
+            width: 40%;
+            background-color: #22c55e;
+          }
+
+          button:hover {
+            background-color: white;
+            color: #22c55e;
+            outline: 2px solid #22c55e;
+          }
+        }
+      }
+
+      @media (max-width: 500px) {
+        #feed-monky-dialog {
+          margin-inline: 20px;
+        }
+      }
+    </style>
+
+    <script>
+      function openDialog() {
+        /**
+         * @type {HTMLDialogElement}
+         */
+        const dialog = document.getElementById('feed-monky-dialog')
+
+        dialog.showModal()
+      }
+
+      function closeDialog() {
+        /**
+         * @type {HTMLDialogElement}
+         */
+        const dialog = document.getElementById('feed-monky-dialog')
+        /**
+         * @type {HTMLFormElement}
+         */
+        const form = document.getElementById('feed-monky-form')
+
+        form.reset()
+        dialog.close()
+      }
+
+      /**
+       * @param {FormEvent<HTMLFormElement>} event
+       */
+      async function onSubmit(event) {
+        event.preventDefault()
+
+        const formData = new FormData(event.target)
+        const customerEmail = formData.get('customerEmail')
+        const feedbackText = formData.get('feedbackText')
+
+        // TODO adjust url
+        const url = 'http://localhost:3001/api/feedback'
+
+        const data = {
+          siteId: '--SITEID--',
+          feedbackText,
+        }
+
+        if (customerEmail) {
+          data.customerEmail = customerEmail
+        }
+
+        await fetch(url, {
+          method: 'post',
+          body: JSON.stringify(data),
+        })
+
+        closeDialog()
+      }
+    </script>
+  </head>
+  <body>
+    <button
+      id="feed-monky-button"
+      onclick="openDialog()"
+    >
+      Feedback
+    </button>
+
+    <dialog id="feed-monky-dialog">
+      <div class="feed-monky-dialog-head">
+        <h2>We value your feedback</h2>
+
+        <button onclick="closeDialog()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <form
+        id="feed-monky-form"
+        onsubmit="return onSubmit(event)"
+      >
+        <label for="customerEmail">
+          E-Mail
+          <small>(optional, only if you want to hear back from us)</small>
+        </label>
+
+        <input
+          id="customerEmail"
+          name="customerEmail"
+          type="email"
+          placeholder="john@doe.com"
+        />
+
+        <label for="feedbackText"> What should we improve? <small>(max 200 characters)</small> </label>
+
+        <textarea
+          id="feedbackText"
+          name="feedbackText"
+          placeholder="Please tell us what you think"
+          rows="5"
+          minlength="10"
+          maxlength="200"
+        ></textarea>
+
+        <button>Submit</button>
+      </form>
+    </dialog>
+  </body>
+</html>

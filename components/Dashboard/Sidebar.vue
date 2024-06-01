@@ -3,7 +3,9 @@
     :links="links"
     :bottom-links="bottomLinks"
     :bottom-btns="bottomBtns"
-  />
+  >
+    <HomeLogo small />
+  </UISidebar>
 </template>
 
 <script setup lang="ts">

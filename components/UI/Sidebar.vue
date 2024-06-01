@@ -1,5 +1,9 @@
 <template>
   <aside class="flex h-screen w-fit flex-col gap-5 border-r p-10">
+    <div class="mb-5">
+      <slot />
+    </div>
+
     <NuxtLink
       v-for="{ title, path } in links"
       :key="path"

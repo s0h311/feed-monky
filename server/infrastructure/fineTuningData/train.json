@@ -1,0 +1,89 @@
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"fd0591ff-fa4a-41f5-9d2f-8fa34068d37f\": { \"feedbacks\": [ { \"id\": 1, \"feedbackText\": \"The website takes too long to load, could you please improve the loading speed?\" }, { \"id\": 2, \"feedbackText\": \"I'm having trouble finding the contact information, could you make it more visible?\" }, { \"id\": 3, \"feedbackText\": \"The product images look a bit blurry, it would be great if they were sharper.\" }, { \"id\": 4, \"feedbackText\": \"I'm a bit confused by the checkout process, could you simplify it?\" }, { \"id\": 5, \"feedbackText\": \"The website design looks a bit outdated, maybe it's time for a refresh?\" }, { \"id\": 6, \"feedbackText\": \"It would be helpful to know the shipping costs upfront.\" }, { \"id\": 7, \"feedbackText\": \"The search function doesn't seem to be working very well, could you improve it?\" }, { \"id\": 8, \"feedbackText\": \"I'm having trouble viewing the website on my mobile device, could you make it more mobile-friendly?\" }, { \"id\": 9, \"feedbackText\": \"The product descriptions are a bit too brief, could you provide more details?\" }, { \"id\": 10, \"feedbackText\": \"I couldn't find a FAQ section, it would be nice to have one.\" }, { \"id\": 11, \"feedbackText\": \"Your website is too slow\" }, { \"id\": 12, \"feedbackText\": \"The search bar is bugy\" }, { \"id\": 13, \"feedbackText\": \"The checkout is overwhelming\" } ], \"feedbackSummaries\": [ \"Slow loading\", \"Add contact info\", \"Blurry images\", \"Confusing checkout\", \"Add modern design\" ] } }"},
+      {"role": "assistant", "content": "{ \"fd0591ff-fa4a-41f5-9d2f-8fa34068d37f\": { \"Slow loading\": [1, 11], \"Add contact info\": [2], \"Blurry images\": [3], \"Confusing checkout\": [4, 13], \"Add modern design\": [5], \"Display shipping costs upfront\": [6], \"Search bar not working\": [7, 12], \"Make website mobile friendly\": [8], \"Add more to product descriptions\": [9], \"Cannot find FAQ\": [10] } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"e8ddee2d-8190-4eb2-9f03-e192ad3d906c\": { \"feedbacks\": [ { \"id\": 11, \"feedbackText\": \"The website layout feels a bit cluttered, could you declutter it?\" }, { \"id\": 12, \"feedbackText\": \"The navigation menu is a bit confusing, could you make it more user-friendly?\" }, { \"id\": 13, \"feedbackText\": \"It would be great to have a live chat option for quick assistance.\" }, { \"id\": 14, \"feedbackText\": \"I'm a bit concerned about the website's security, could you ensure it's secure?\" }, { \"id\": 15, \"feedbackText\": \"I couldn't find a blog section, it would be nice to have one.\" }, { \"id\": 16, \"feedbackText\": \"It would be convenient to have a wishlist feature.\" }, { \"id\": 17, \"feedbackText\": \"A size guide would be really helpful when shopping for clothes.\" }, { \"id\": 18, \"feedbackText\": \"It would be great to have a currency converter for international customers.\" }, { \"id\": 19, \"feedbackText\": \"I'd love to be able to compare products side by side, could you add that feature?\" }, { \"id\": 20, \"feedbackText\": \"Could you allow guest checkout for quicker purchases?\" }, { \"id\": 21, \"feedbackText\": \"Good job with the website, it looks great. The only piece which is missing is a blog\" }, { \"id\": 22, \"feedbackText\": \"It would be nice to have a blog section\" }, { \"id\": 23, \"feedbackText\": \"I would like to be able to purchase things without having to sign up\" } ], \"feedbackSummaries\": [ \"Cluttered design\", \"Add user-friendly navigation\", \"Add live chat\", \"Secure website\" ] } }"},
+      {"role": "assistant", "content": "{ \"e8ddee2d-8190-4eb2-9f03-e192ad3d906c\": { \"Cluttered design\": [11], \"Add user-friendly navigation\": [12], \"Add live chat\": [13], \"Secure website\": [14], \"Add blog section\": [15, 21, 22], \"Add wishlish\": [16], \"Add size guide\": [17], \"Add Currency converter\": [18], \"Add Compare feature\": [19], \"Add guest checkout\": [20, 23], } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"9f853537-1dbf-4821-a0b6-17d408f4aed6\": { \"feedbacks\": [ { \"id\": 24, \"feedbackText\": \"Could you integrate social media links for better engagement?\" }, { \"id\": 25, \"feedbackText\": \"I'd love to be able to read product reviews before making a purchase.\" }, { \"id\": 26, \"feedbackText\": \"A size chart would be really helpful when shopping for clothes.\" }, { \"id\": 27, \"feedbackText\": \"It would be great to have product videos for a better understanding of the items.\" }, { \"id\": 28, \"feedbackText\": \"Could you make gift cards available for gifting purposes?\" }, { \"id\": 29, \"feedbackText\": \"I'd be interested in joining a loyalty program if you had one.\" }, { \"id\": 30, \"feedbackText\": \"It would be nice to have the option to customize products.\" }, { \"id\": 31, \"feedbackText\": \"The website design feels a bit plain and boring, could you make it more visually appealing?\" }, { \"id\": 32, \"feedbackText\": \"I couldn't find a search bar, could you add one?\" }, { \"id\": 33, \"feedbackText\": \"It would be nice to have a newsletter signup option to stay updated.\" }, { \"id\": 34, \"feedbackText\": \"Add a newsletter\" }, { \"id\": 35, \"feedbackText\": \"I would like to be able to see the sizes chart before buying\" }, { \"id\": 36, \"feedbackText\": \"Your products are very cool. It would be nice if you had videos of them\" }, { \"id\": 37, \"feedbackText\": \"You must have a search bar.....\" } ], \"feedbackSummaries\": [ \"Add visually appealing design\", \"Add search bar\", \"Add product reviews\" ] } }"},
+      {"role": "assistant", "content": "{ \"9f853537-1dbf-4821-a0b6-17d408f4aed6\": { \"Add visually appealing design\": [31], \"Add search bar\": [32, 37], \"Add product reviews\": [25], \"Add newsletter\": [33, 34], \"Add social media links\": [24], \"Add sizes chart\": [26, 35], \"Add product videos\": [27, 36], \"Add gift cards\": [28], \"Add a loyalty program\": [29], \"Customizable products\": [30], } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"0104a0bb-67b0-4288-b776-5c94db514f5b\": { \"feedbacks\": [ { \"id\": 38, \"feedbackText\": \"It would be great to have a currency converter for international customers.\" }, { \"id\": 39, \"feedbackText\": \"Could you allow guest checkout for quicker purchases?\" }, { \"id\": 40, \"feedbackText\": \"It would be great to have product videos for a better understanding of the items.\" }, { \"id\": 41, \"feedbackText\": \"The website takes too long to load, could you please improve the loading speed?\" }, { \"id\": 42, \"feedbackText\": \"Could you add a contact form for easy communication?\" }, { \"id\": 43, \"feedb4ackText\": \"It would be great to have product filters for easier browsing.\" }, { \"id\": 44, \"feedbackText\": \"I'd love to be able to zoom in on product images for better details.\" }, { \"id\": 45, \"feedbackText\": \"It would be helpful to have a section for recently viewed products.\" }, { \"id\": 46, \"feedbackText\": \"I'd love to be able to compare products side by side, could you add that feature?\" }, { \"id\": 47, \"feedbackText\": \"A size guide would be really helpful when shopping for clothes.\" }, { \"id\": 48, \"feedbackText\": \"Your website is horrible, You can't event filter the products\" }, { \"id\": 49, \"feedbackText\": \"The site is very very very slow\" }, { \"id\": 50, \"feedbackText\": \"How can I contact you? There is no contact form. I don't want to write an email\" } ], \"feedbackSummaries\": [ \"Add product filters\", \"Add product zoom\", \"Add recently viewed products\" ] } }"},
+      {"role": "assistant", "content": "{ \"0104a0bb-67b0-4288-b776-5c94db514f5b\": { \"Add product filters\": [43, 48], \"Add product zoom\": [44], \"Add recently viewed products\": [45], \"Add currency converter\": [38], \"Add guest checkout\": [39], \"Add videos for products\": [40], \"Improve website speed\": [41, 49], \"Add contact form\": [42, 50], \"Add compare for products\": [46], \"Add size guide\": [47] } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"4672416f-8795-4dfd-bf9d-5d67f4a3f94d\": { \"feedbacks\": [ { \"id\": 51, \"feedbackText\": \"The website crashed when I tried to add an item to my cart. I had to refresh the page to continue shopping.\" }, { \"id\": 52, \"feedbackText\": \"The website froze up when I tried to add an item to my cart. I had to close the browser and start over.\" }, { \"id\": 53, \"feedbackText\": \"The website stopped responding when I tried to add an item to my cart. I had to wait a few minutes before it started working again.\" }, { \"id\": 54, \"feedbackText\": \"I can't log in to my account, it keeps saying my credentials are invalid.\" }, { \"id\": 55, \"feedbackText\": \"The website is showing incorrect pricing for some products. The prices don't match what's listed in the catalog.\" }, { \"id\": 56, \"feedbackText\": \"The website crashed when I tried to check out. I lost all the items in my cart.\" }, { \"id\": 57, \"feedbackText\": \"I can't add items to my cart, it keeps giving me an error message.\" }, { \"id\": 58, \"feedbackText\": \"I keep getting an error when trying to log in to my account. It says there's a problem with the server.\" }, { \"id\": 59, \"feedbackText\": \"The website is showing the wrong product information. The descriptions and images don't match the actual products.\" }, { \"id\": 60, \"feedbackText\": \"The website crashed when I tried to view my order history. I had to restart my computer to get it working again.\" }, { \"id\": 61, \"feedbackText\": \"The website layout feels a bit cluttered, could you declutter it?\" }, { \"id\": 62, \"feedbackText\": \"It would be great to have a live chat option for quick assistance.\" }, { \"id\": 63, \"feedbackText\": \"I'd love to be able to read product reviews before making a purchase.\" }, { \"id\": 64, \"feedbackText\": \"It would be convenient to have a wishlist feature.\" }, { \"id\": 65, \"feedbackText\": \"A size chart would be really helpful when shopping for clothes.\" }, { \"id\": 66, \"feedbackText\": \"Could you make gift cards available for gifting purposes?\" }, { \"id\": 67, \"feedbackText\": \"I'd be interested in joining a loyalty program if you had one.\" }, { \"id\": 68, \"feedbackText\": \"It would be nice to have the option to customize products.\" }, { \"id\": 69, \"feedbackText\": \"It would be great to have product videos for a better understanding of the items.\" }, { \"id\": 70, \"feedbackText\": \"Could you allow guest checkout for quicker purchases?\" }, { \"id\": 71, \"feedbackText\": \"Why don't you have a wishlist????\" }, { \"id\": 72, \"feedbackText\": \"Your product descriptions are incorrect\" }, { \"id\": 73, \"feedbackText\": \"I'm unable to login, I've already resetted my password\" } ], \"feedbackSummaries\": [ \"Add wishlist\", \"Add size chart\", \"Website crash\", \"Login issue\", \"Incorrect pricing\" ] } }"},
+      {"role": "assistant", "content": "{ \"4672416f-8795-4dfd-bf9d-5d67f4a3f94d\": { \"Add wishlist\": [64, 71], \"Add size chart\": [65], \"Website crash\": [51, 52, 53, 56, 60], \"Login issue\": [54, 58, 73], \"Incorrect pricing\": [55], \"Cannot add item to cart\": [57], \"Incorrect product descriptions\": [59, 72], \"Cluttered layout\": [61], \"Add live chat\": [62], \"Display product reviews\": [63], \"Add gift cards\": [66], \"Add a loyalty program\": [67], \"Customizable products\": [68], \"Add videos to products\": [69], \"Guest checkout\": [70] } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"4f8e1830-d189-4318-94e7-0fe7df096e73\": { \"feedbacks\": [ { \"id\": 90, \"feedbackText\": \"It would be nice, if I didn't need to contact customer service for deleting my account.\" }, { \"id\": 95, \"feedbackText\": \"The website is very useful, but the mobile website could be a lot better.\" } ], \"feedbackSummaries\": [ \"Add account delete option\", \"Fix cart\", ] } }"},
+      {"role": "assistant", "content": "{ \"4f8e1830-d189-4318-94e7-0fe7df096e73\": { \"Add account delete option\": [90], \"Make mobile website better\": [95], } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"de5e26c1-0ad0-4741-b3c8-fb7ba4f5ea25\": { \"feedbacks\": [ { \"id\": 100, \"feedbackText\": \"I would like to report a bug. When you open the account section and then go to signup page then the my-accout page is not reachable. It throws an error. It works after deleting the cookeis\" }, { \"id\": 121, \"feedbackText\": \"Your prices are way too high\" } ], \"feedbackSummaries\": [] } }"},
+      {"role": "assistant", "content": "{ \"de5e26c1-0ad0-4741-b3c8-fb7ba4f5ea25\": { \"Account section is buggy\": [100], \"Cheaper prices\": [121], } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"258f0b3a-2687-4849-8da3-83083b09378f\": { \"feedbacks\": [ { \"id\": 101, \"feedbackText\": \"It would be nice if you could offer shop pickup\" }, { \"id\": 115, \"feedbackText\": \"It is impossible to create invoices when the customers address is long\" } ], \"feedbackSummaries\": [ \"Allow long customer address\" ] } }"},
+      {"role": "assistant", "content": "{ \"258f0b3a-2687-4849-8da3-83083b09378f\": { \"Add Click & Collect\": [101], \"Allow long customer address\": [115], } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"e33b2553-afff-41af-b0f8-e00df44a3105\": { \"feedbacks\": [ { \"id\": 99, \"feedbackText\": \"I received the product just yesterday. You promised a two day shipment, I waited two weeks.... Never buying here again\" }, { \"id\": 116, \"feedbackText\": \"The shipment must be faster\" } ], \"feedbackSummaries\": [ \"Search is not working\", \"Unable to delete account\", \"Add delete account option\" ] } }"},
+      {"role": "assistant", "content": "{ \"e33b2553-afff-41af-b0f8-e00df44a3105\": { \"Faster shipments\": [99, 116], } }"}
+  ]
+}
+
+
+{
+  "messages": [
+      {"role": "system", "content": "The input is a json. The output must a json. For every site id assign the feedbacks to feedbackSummaries, if there is no fitting feedbackSummary then create a new one"},
+      {"role": "user", "content": "{ \"d1309679-546a-41fc-afed-bd96b73f9a76\": { \"feedbacks\": [ { \"id\": 102, \"feedbackText\": \"Your websites design could be a lot better\" }, ], \"feedbackSummaries\": [] } }"},
+      {"role": "assistant", "content": "{ \"d1309679-546a-41fc-afed-bd96b73f9a76\": { \"Better design for website\": [102], } }"}
+  ]
+}

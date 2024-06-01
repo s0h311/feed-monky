@@ -23,7 +23,7 @@
 
       <div class="pt-[20%]">
         <NuxtImg
-          class="mb-10"
+          class="mb-8"
           :src="images[1]"
           width="176"
           height="264"

@@ -20,11 +20,17 @@
 import prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.min.css'
 
-const config = useRuntimeConfig()
 const site = (await useSite()).value!
 const toast = useToaster()
 
-const iframeSrc = computed(() => `${config.public.feedxApiUrl}/api/template?siteId=${site.id}`)
+const iframeSrc = computed(() => {
+  if (typeof window === 'undefined') return ''
+
+  const protocol = window.location.protocol
+  const host = window.location.host
+
+  return `${protocol}//${host}/api/template?siteId=${site.id}`
+})
 const code = computed(() => {
   return (
     '<iframe' +

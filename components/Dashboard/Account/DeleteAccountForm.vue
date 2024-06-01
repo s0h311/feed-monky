@@ -22,7 +22,6 @@
 import type { UIConfirmationDialog } from '#build/components'
 
 const site = await useSite()
-const config = useRuntimeConfig()
 
 const deleteAccountConfirmationDialog = ref<InstanceType<typeof UIConfirmationDialog>>()
 
@@ -31,7 +30,7 @@ function showConfirmationDialog(): void {
 }
 
 async function handleDeleteAccount(): Promise<void> {
-  await $fetch(`${config.public.feedxApiUrl}/api/account`, {
+  await $fetch('/api/account', {
     method: 'delete',
   })
 

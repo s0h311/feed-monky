@@ -11,8 +11,6 @@
 <script setup lang="ts">
 import type { PricingOption } from '../UI/Pricing.vue'
 
-const config = useRuntimeConfig()
-
 const pricingOptions: (PricingOption & { priceId: string; isMetered?: boolean })[] = [
   {
     title: 'Starter',
@@ -50,7 +48,7 @@ const pricingOptions: (PricingOption & { priceId: string; isMetered?: boolean })
 async function handleGoToCheckout(pricingOptionIndex: number): Promise<void> {
   const pricingOption = pricingOptions[pricingOptionIndex]
 
-  const stripeCheckoutUrl: string = await $fetch(`${config.public.feedxApiUrl}/api/stripe/checkout`, {
+  const stripeCheckoutUrl: string = await $fetch('/api/stripe/checkout', {
     method: 'post',
     body: {
       priceId: pricingOption.priceId,

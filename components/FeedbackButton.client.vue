@@ -6,7 +6,8 @@
 </template>
 
 <script setup lang="ts">
-const config = useRuntimeConfig()
+const protocol = window.location.protocol
+const host = window.location.host
 
-const src = computed(() => `${config.public.feedxApiUrl}/api/template?siteId=4dabc61f-4c0f-4c29-88ed-052731fcd0ed`)
+const src = computed(() => `${protocol}//${host}/api/template?siteId=4dabc61f-4c0f-4c29-88ed-052731fcd0ed`)
 </script>

@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/test-utils/module', '@nuxtjs/supabase'],
   app: {
@@ -20,9 +19,12 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
   },
-  runtimeConfig: {
-    public: {
-      feedxApiUrl: '', // gets overriden by .env
+  nitro: {
+    storage: {
+      templates: {
+        driver: 'fs',
+        base: 'templates/',
+      },
     },
   },
 })

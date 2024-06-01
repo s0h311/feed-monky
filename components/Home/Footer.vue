@@ -3,8 +3,9 @@
     :links-column1="otherProdcutsLinks"
     :links-column2="contactLinks"
     :links-column3="legalLinks"
+    :attributions="attributions"
   >
-    <HomeLogo class="bg-neutral-content text-neutral" />
+    <HomeLogo light />
   </UIFooter>
 </template>
 
@@ -50,4 +51,11 @@ const legalLinks = {
     },
   ],
 }
+
+const attributions = [
+  {
+    title: 'Mammal icons created by Buandesign - Flaticon',
+    path: 'https://www.flaticon.com/free-icons/mammal',
+  },
+]
 </script>

@@ -9,16 +9,20 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev | pino-pretty",
+    "test": "vitest",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "gen:db:types": "npx supabase gen types typescript --project-id vtfflnridczqyqcmoqxp > types/databaseTypes.ts",
+    "stripe:webhook": "stripe listen --forward-to localhost:3000/api/stripe/webhook",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/supabase": "^1.2.2",
+    "chart.js": "^4.4.3",
+    "date-fns": "^3.6.0",
     "nuxt": "^3.11.2",
     "openai": "^4.47.3",
     "pino": "^9.0.0",
@@ -36,6 +40,7 @@
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.10.5",
     "eslint": "^8.57.0",
+    "happy-dom": "^14.12.0",
     "postcss": "^8.4.38",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.3",

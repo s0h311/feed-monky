@@ -3,6 +3,8 @@ import FeedbackSummaryDataService from '../../dataLayer/feedbackSummary/Feedback
 import { Feedback, FeedbackSummary, Site } from '../../dataLayer/types'
 import { groupBy } from '~/utils/objectFns'
 import OpenAIService, { AssignFeedbacksForSiteRequest, AssignFeedbacksForSiteResponse } from '../openai/OpenAIService'
+import StripeUsageService from '../stripe/usageService'
+import SiteDataService from '~/server/dataLayer/site/SiteDataService'
 
 type FeedbacksBySiteId = Record<Site['id'], Feedback[]>
 
@@ -15,15 +17,13 @@ export type FeedbacksAndFeedbackSummariesBySiteId = Record<
 >
 
 export default class GetFeedbackSummaryTask {
-  private feedbackDataService: FeedbackDataService
-  private feedbackSummaryDataService: FeedbackSummaryDataService
-  private openaiService: OpenAIService
-
-  constructor() {
-    this.feedbackDataService = new FeedbackDataService()
-    this.feedbackSummaryDataService = new FeedbackSummaryDataService()
-    this.openaiService = new OpenAIService()
-  }
+  constructor(
+    private feedbackDataService = new FeedbackDataService(),
+    private feedbackSummaryDataService = new FeedbackSummaryDataService(),
+    private openaiService = new OpenAIService(),
+    private stripeUsageService = new StripeUsageService(),
+    private siteDateService = new SiteDataService()
+  ) {}
 
   public async execute(): Promise<void> {
     const groupedFeedbacksAndFeedbackSummaries = await this.groupFeedbacksAndFeedbackSummaries()
@@ -33,7 +33,21 @@ export default class GetFeedbackSummaryTask {
     }
 
     const response = await this.createOpenAIRequest(groupedFeedbacksAndFeedbackSummaries)
+
     await this.assignFeedbackSummariesToFeedbacks(response)
+
+    const siteIds = Object.keys(groupedFeedbacksAndFeedbackSummaries)
+    const stripeCustomerIdBySiteId = await this.siteDateService.getStripeCustomerIdBySiteIds(siteIds)
+
+    for (let siteId of siteIds) {
+      const numberOfFeedbacksAssigned = groupedFeedbacksAndFeedbackSummaries[siteId].feedbacks.length
+
+      await this.stripeUsageService.execute(
+        'feedx_monthly_meter',
+        stripeCustomerIdBySiteId[siteId],
+        numberOfFeedbacksAssigned
+      )
+    }
   }
 
   private async groupFeedbacksAndFeedbackSummaries(): Promise<AssignFeedbacksForSiteRequest> {

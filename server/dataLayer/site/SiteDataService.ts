@@ -11,11 +11,20 @@ export default class SiteDataService {
   constructor() {
     this.supabase = supabaseClient
   }
-  public async create({ userId, name }: { userId: string; name: string }): Promise<Site> {
+  public async create({
+    userId,
+    name,
+    stripeCustomerId,
+  }: {
+    userId: string
+    name: string
+    stripeCustomerId: string
+  }): Promise<Site> {
     const { data: siteCreateData, error: siteCreateError } = await this.supabase
       .from('site')
       .insert({
         user_id: userId,
+        stripe_customer_id: stripeCustomerId,
         name,
       })
       .select()
@@ -36,5 +45,21 @@ export default class SiteDataService {
     }
 
     return objectToCamel(siteGetData)
+  }
+
+  public async getStripeCustomerIdBySiteIds(
+    siteIds: Site['id'][]
+  ): Promise<Record<Site['id'], Site['stripeCustomerId']>> {
+    const { data, error } = await this.supabase.from('site').select('id, stripe_customer_id').in('id', siteIds)
+
+    if (error) {
+      throw logger.error(error.message, 'UserDataService - getStripeCustomerIdBySiteIds', true, { siteIds })
+    }
+
+    const result: Record<Site['id'], Site['stripeCustomerId']> = {}
+
+    data.forEach((site) => (result[site.id] = site.stripe_customer_id))
+
+    return result
   }
 }

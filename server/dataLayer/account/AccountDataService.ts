@@ -20,11 +20,19 @@ export default class AccountDataService {
     this.userDataService = new UserDataService()
   }
 
-  public async create({ name, email }: { name: string; email: string }): Promise<Site> {
+  public async create({
+    name,
+    email,
+    stripeCustomerId,
+  }: {
+    name: string
+    email: string
+    stripeCustomerId: string
+  }): Promise<Site> {
     const randomPassword = this.generateRandomPassword()
 
     const user = await this.userDataService.create({ email, password: randomPassword })
-    const site = await this.siteDataService.create({ userId: user.id, name })
+    const site = await this.siteDataService.create({ userId: user.id, name, stripeCustomerId })
 
     await this.sendPasswordViaEmail(name, email, randomPassword)
 

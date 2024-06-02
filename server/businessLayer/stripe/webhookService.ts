@@ -40,7 +40,13 @@ export default class StripeWebhookService {
         })
       }
 
-      const site = await this.createUser(event.data.object.customer_details)
+      if (event.data.object.customer === null) {
+        throw logger.error('Unable to update last payment, no customer found', 'StripeWebhookService', true, {
+          event,
+        })
+      }
+
+      const site = await this.createUser(event.data.object.customer_details, event.data.object.customer.toString())
 
       const metadata = event.data.object.metadata
 
@@ -81,7 +87,10 @@ export default class StripeWebhookService {
     return { received: true }
   }
 
-  private async createUser(customerDetails: Stripe.Checkout.Session.CustomerDetails): Promise<Site> {
+  private async createUser(
+    customerDetails: Stripe.Checkout.Session.CustomerDetails,
+    customerId: string
+  ): Promise<Site> {
     if (!customerDetails) {
       throw logger.error('Unable to create user, customerDetails is null', 'StripeWebhookService', true)
     }
@@ -97,6 +106,7 @@ export default class StripeWebhookService {
     const site = await this.accountDataService.create({
       name: customerDetails.name,
       email: customerDetails.email,
+      stripeCustomerId: customerId,
     })
 
     return site

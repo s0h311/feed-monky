@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-evenly gap-10 tablet:flex-row tablet:gap-0">
       <slot />
 
-      <div class="flex flex-row flex-wrap gap-x-20 gap-y-10 desktop:gap-32">
+      <div class="mb-5 flex flex-row flex-wrap gap-x-20 gap-y-10 desktop:gap-32">
         <ul class="flex flex-col gap-3">
           <p class="text-base-100">{{ linksColumn1.title }}</p>
 

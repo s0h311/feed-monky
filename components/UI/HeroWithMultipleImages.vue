@@ -70,6 +70,6 @@ defineProps<Props>()
 
 <style scoped>
 img {
-  @apply rounded-xl;
+  @apply aspect-[176/264] rounded-xl object-cover;
 }
 </style>

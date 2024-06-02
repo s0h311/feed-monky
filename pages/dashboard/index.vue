@@ -1,5 +1,5 @@
 <template>
-  <DashboardOverview />
+  <DashboardOverviewChartGrid />
 </template>
 
 <script setup lang="ts">

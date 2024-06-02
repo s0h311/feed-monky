@@ -42,8 +42,8 @@ const legalLinks = {
       path: '/legal/imprint',
     },
     {
-      title: 'Privacy policy',
-      path: '/legal/privacyPolicy',
+      title: 'Privacy',
+      path: '/legal/privacy',
     },
     {
       title: 'Terms',

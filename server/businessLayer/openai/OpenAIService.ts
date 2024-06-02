@@ -37,7 +37,7 @@ export default class OpenAIService {
 
     const firstChoice = completionResponse.choices[0]
 
-    if (!firstChoice) {
+    if (firstChoice.message.content === null) {
       return {}
     }
 

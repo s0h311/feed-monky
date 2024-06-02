@@ -56,19 +56,19 @@ export type Database = {
           created_at: string
           id: number
           site_id: string
-          summary: string | null
+          summary: string
         }
         Insert: {
           created_at?: string
           id?: number
           site_id: string
-          summary?: string | null
+          summary: string
         }
         Update: {
           created_at?: string
           id?: number
           site_id?: string
-          summary?: string | null
+          summary?: string
         }
         Relationships: [
           {
@@ -103,14 +103,14 @@ export type Database = {
           {
             foreignKeyName: "site_user_id_fkey"
             columns: ["user_id"]
-            isOneToOne: false
+            isOneToOne: true
             referencedRelation: "users"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "site_user_id_fkey"
             columns: ["user_id"]
-            isOneToOne: false
+            isOneToOne: true
             referencedRelation: "users"
             referencedColumns: ["id"]
           },
@@ -121,28 +121,31 @@ export type Database = {
           created_at: string
           id: number
           last_payment: string | null
+          payment_period: Database["public"]["Enums"]["payment_period"]
           site_id: string | null
-          type: Database["public"]["Enums"]["subscription_type"]
+          type: Database["public"]["Enums"]["type"]
         }
         Insert: {
           created_at?: string
           id?: number
           last_payment?: string | null
+          payment_period: Database["public"]["Enums"]["payment_period"]
           site_id?: string | null
-          type: Database["public"]["Enums"]["subscription_type"]
+          type: Database["public"]["Enums"]["type"]
         }
         Update: {
           created_at?: string
           id?: number
           last_payment?: string | null
+          payment_period?: Database["public"]["Enums"]["payment_period"]
           site_id?: string | null
-          type?: Database["public"]["Enums"]["subscription_type"]
+          type?: Database["public"]["Enums"]["type"]
         }
         Relationships: [
           {
             foreignKeyName: "subscription_site_id_fkey"
             columns: ["site_id"]
-            isOneToOne: false
+            isOneToOne: true
             referencedRelation: "site"
             referencedColumns: ["id"]
           },
@@ -274,7 +277,8 @@ export type Database = {
       }
     }
     Enums: {
-      subscription_type: "monthly" | "yearly" | "lifetime"
+      payment_period: "monthly" | "yearly" | "lifetime"
+      type: "starter" | "pro"
     }
     CompositeTypes: {
       [_ in never]: never

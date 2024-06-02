@@ -12,8 +12,9 @@
 
 <script setup lang="ts">
 const gains = [
+  'Collect feedbacks with minimum effort',
   'Feedbacks get automatically summarized',
-  'Using cutting edge custom AI',
+  'Powered by cutting edge AI',
   'Saves you hours of reading long feedbacks',
 ]
 </script>

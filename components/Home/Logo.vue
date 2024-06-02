@@ -1,5 +1,8 @@
 <template>
-  <div class="flex items-center">
+  <NuxtLink
+    class="flex items-center"
+    to="/"
+  >
     <NuxtImg
       src="/monkey.png"
       :width="small ? 60 : 80"
@@ -7,17 +10,16 @@
       alt="Monkey logo"
     />
 
-    <NuxtLink
+    <p
       class="size-fit justify-self-start rounded-sm px-2 py-1 tracking-wider"
       :class="[
         light ? 'bg-neutral-content text-neutral' : ' bg-base-content text-base-100',
         small ? 'text-sm' : 'text-lg ',
       ]"
-      to="/"
     >
       Feed Monky
-    </NuxtLink>
-  </div>
+    </p>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 import { objectToCamel } from 'ts-case-convert'
-import type { Subscription } from '~/types/types'
-import type { Database } from '~/types/databaseTypes'
+import type { Subscription } from '~/server/dataLayer/types'
+import type { Database } from '~/server/infrastructure/supabase/types'
 import logger from '~/utils/logger'
 
 export async function useSubscription(): Promise<Ref<Subscription | null>> {

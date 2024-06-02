@@ -5,13 +5,12 @@
     <div>
       <DashboardOverviewChartFeedbacksInLast30Days />
     </div>
-    <div>
+    <div v-if="subscription.type === 'pro'">
       <DashboardOverviewChartMostPopularFeedbackSummaries />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// TODO show feedback summary related charts only if subscription type === pro
-const subscription = await useSubscription()
+const subscription = (await useSubscription()).value!
 </script>

@@ -14,8 +14,6 @@ export type FeedbacksAndFeedbackSummariesBySiteId = Record<
   }
 >
 
-// TODO schedule this Task
-
 export default class GetFeedbackSummaryTask {
   private feedbackDataService: FeedbackDataService
   private feedbackSummaryDataService: FeedbackSummaryDataService

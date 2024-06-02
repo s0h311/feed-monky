@@ -1,6 +1,6 @@
 import { objectToCamel } from 'ts-case-convert'
-import type { Database } from '~/types/databaseTypes'
-import type { Site } from '~/types/types'
+import type { Site } from '~/server/dataLayer/types'
+import type { Database } from '~/server/infrastructure/supabase/types'
 
 export async function useSite(): Promise<Ref<Site | null>> {
   const site = useState<Site | null>('site', () => null)

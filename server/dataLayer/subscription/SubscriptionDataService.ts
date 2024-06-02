@@ -11,9 +11,14 @@ export default class SubscriptionService {
     this.supabase = supabase
   }
 
-  public async create(siteId: string, subscriptionType: Subscription['type']): Promise<void> {
+  public async create(
+    siteId: string,
+    paymentPeriod: Subscription['paymentPeriod'],
+    subscriptionType: Subscription['type']
+  ): Promise<void> {
     const { error } = await this.supabase.from('subscription').insert({
       site_id: siteId,
+      payment_period: paymentPeriod,
       type: subscriptionType,
     })
 

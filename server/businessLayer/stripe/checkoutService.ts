@@ -1,4 +1,5 @@
 import Stripe from 'stripe'
+import { Subscription } from '~/server/dataLayer/types'
 import logger from '~/utils/logger'
 
 type StripeCheckoutQuery = {
@@ -6,7 +7,6 @@ type StripeCheckoutQuery = {
   checkoutOptions: {
     priceId: string
     paymentPeriod: 'monthly' | 'yearly' | 'lifetime'
-    isMetered?: boolean
     isAddressRequired?: boolean
   }
 }
@@ -20,12 +20,24 @@ export default class StripeCheckoutService {
     lifetime: 'payment',
   }
 
+  private subscriptionDetails: Record<string, { isMetered: boolean; subscriptionType: Subscription['type'] }> = {
+    price_1PIR0aBzByKpK824DmpXhyT2: {
+      isMetered: false,
+      subscriptionType: 'starter',
+    },
+    price_1PITK0BzByKpK824tlzt3jti: {
+      isMetered: true,
+      subscriptionType: 'pro',
+    },
+  }
+
   constructor() {
     this.stripe = new Stripe(this.getStripeSecret())
   }
 
   public async execute(query: StripeCheckoutQuery): Promise<string> {
-    const { priceId, paymentPeriod, isMetered = false, isAddressRequired = false } = query.checkoutOptions
+    const { priceId, paymentPeriod, isAddressRequired = false } = query.checkoutOptions
+    const { isMetered, subscriptionType } = this.subscriptionDetails[priceId]
 
     const mode = this.modes[paymentPeriod]
 
@@ -46,6 +58,10 @@ export default class StripeCheckoutService {
         mode,
         success_url: successUrl,
         cancel_url: cancelUrl,
+        metadata: {
+          paymentPeriod,
+          subscriptionType,
+        },
       }
 
       if (isAddressRequired) {

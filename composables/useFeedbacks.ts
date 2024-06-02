@@ -1,6 +1,6 @@
 import { objectToCamel } from 'ts-case-convert'
-import type { Database } from '~/types/databaseTypes'
-import type { Feedback } from '~/types/types'
+import type { Feedback } from '~/server/dataLayer/types'
+import type { Database } from '~/server/infrastructure/supabase/types'
 
 export async function useFeedbacks(): Promise<Ref<Feedback[]>> {
   const feedbacks = useState<Feedback[]>('feedbacks', () => [])

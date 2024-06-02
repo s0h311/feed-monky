@@ -2,7 +2,7 @@ import Stripe from 'stripe'
 import AccountDataService from '../../dataLayer/account/AccountDataService'
 import logger from '~/utils/logger'
 import SubscriptionDataService from '../../dataLayer/subscription/SubscriptionDataService'
-import type { Site } from '../../dataLayer/types'
+import type { Site, Subscription } from '../../dataLayer/types'
 import type { Storage } from 'unstorage'
 
 type StripeWebhookServiceQuery = {
@@ -34,19 +34,36 @@ export default class StripeWebhookService {
     const event = this.getVerifiedEvent(rawEvent, stripeSignatureHeader)
 
     if (event.type === 'checkout.session.completed') {
+      if (event.data.object.customer_details === null) {
+        throw logger.error('Unable to update last payment, no customer details found', 'StripeWebhookService', true, {
+          event,
+        })
+      }
+
       const site = await this.createUser(event.data.object.customer_details)
 
-      const subscriptionType = event.data.object.mode === 'subscription' ? 'monthly' : 'lifetime'
+      const metadata = event.data.object.metadata
 
-      await this.subscriptionDataService.create(site.id, subscriptionType)
+      if (metadata === null) {
+        throw logger.error('Unable to update last payment, no metadata found', 'StripeWebhookService', true, { event })
+      }
 
-      const email = event.data.object.customer_details?.email
+      const { paymentPeriod, subscriptionType } = metadata
+
+      await this.subscriptionDataService.create(
+        site.id,
+        paymentPeriod as Subscription['paymentPeriod'],
+        subscriptionType as Subscription['type']
+      )
+
+      const email = event.data.object.customer_details.email
 
       if (!email) {
         throw logger.error('Unable to update last payment, email is null', 'StripeWebhookService', true, { email })
       }
 
       const hasEmail = await this.cache.hasItem(email)
+
       if (hasEmail) {
         await this.subscriptionDataService.updateLastPayment(site.id, new Date())
         await this.cache.removeItem(email)

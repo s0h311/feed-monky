@@ -39,37 +39,36 @@ export default class AccountDataService {
       .single()
 
     if (fetchSiteError) {
-      throw logger.error(fetchSiteError.message, 'AccountDataService - delete', true)
+      throw logger.error(fetchSiteError.message, 'AccountDataService - delete', true, { userId })
     }
 
-    const { error: deleteFeedbacksError } = await this.supabase
-      .from('feedback')
-      .delete()
-      .eq('site_id', fetchSiteData.id)
+    const siteId = fetchSiteData.id
+
+    const { error: deleteFeedbacksError } = await this.supabase.from('feedback').delete().eq('site_id', siteId)
 
     if (deleteFeedbacksError) {
-      throw logger.error(deleteFeedbacksError.message, 'AccountDataService - delete', true)
+      throw logger.error(deleteFeedbacksError.message, 'AccountDataService - delete', true, { siteId })
     }
 
     const { error: deleteFeedbackSummaryError } = await this.supabase
       .from('feedback_summary')
       .delete()
-      .eq('site_id', fetchSiteData.id)
+      .eq('site_id', siteId)
 
     if (deleteFeedbackSummaryError) {
-      throw logger.error(deleteFeedbackSummaryError.message, 'AccountDataService - delete', true)
+      throw logger.error(deleteFeedbackSummaryError.message, 'AccountDataService - delete', true, { siteId })
     }
 
-    const { error: deleteSiteError } = await this.supabase.from('site').delete().eq('id', fetchSiteData.id)
+    const { error: deleteSiteError } = await this.supabase.from('site').delete().eq('id', siteId)
 
     if (deleteSiteError) {
-      throw logger.error(deleteSiteError.message, 'AccountDataService - delete', true)
+      throw logger.error(deleteSiteError.message, 'AccountDataService - delete', true, { siteId })
     }
 
     const { data: deleteUserData, error: deleteUserError } = await this.supabase.auth.admin.deleteUser(userId)
 
     if (deleteUserError) {
-      throw logger.error(deleteUserError.message, 'AccountDataService - delete', true)
+      throw logger.error(deleteUserError.message, 'AccountDataService - delete', true, { userId })
     }
 
     await this.mailClient.send({
@@ -77,7 +76,7 @@ export default class AccountDataService {
         name: fetchSiteData.name,
         email: deleteUserData.user.email!,
       },
-      templateId: 2, // TODO update this
+      templateId: 9,
     })
   }
 
@@ -85,7 +84,9 @@ export default class AccountDataService {
     const { data, error } = await this.supabase.rpc('get_site_id_from_user_email', { email })
 
     if (error) {
-      throw logger.error('Unable to get site id from user email', 'AccountDataService - getSiteIdFromEmail', true)
+      throw logger.error('Unable to get site id from user email', 'AccountDataService - getSiteIdFromEmail', true, {
+        email,
+      })
     }
 
     return data

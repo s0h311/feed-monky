@@ -6,7 +6,7 @@
       <tr>
         <!--TODO save subscription type into database-->
         <th>type</th>
-        <td>PRO</td>
+        <td>{{ subscription.type.toUpperCase() }}</td>
       </tr>
 
       <tr>
@@ -18,7 +18,7 @@
 
       <tr>
         <th>payment period</th>
-        <td>{{ subscriptionType }}</td>
+        <td>{{ subscription.paymentPeriod }}</td>
       </tr>
 
       <tr>
@@ -43,16 +43,6 @@
 
 <script setup lang="ts">
 const subscription = (await useSubscription()).value!
-
-const subscriptionType = computed(() =>
-  subscription.type === 'monthly'
-    ? 'monthly'
-    : subscription.type === 'yearly'
-      ? 'yearly'
-      : subscription.type === 'lifetime'
-        ? 'lifetime'
-        : 'error'
-)
 </script>
 
 <style scoped>

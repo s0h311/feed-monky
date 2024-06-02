@@ -19,11 +19,11 @@
             v-if="option.oldPrice"
             class="text-sm line-through"
           >
-            {{ option.oldPrice }}€
+            ${{ option.oldPrice }}
           </p>
 
           <div class="flex items-center gap-2">
-            <p class="text-3xl font-semibold">{{ option.newPrice }}€</p>
+            <p class="text-3xl font-semibold">${{ option.newPrice }}</p>
             <p class="text-sm">/ {{ option.paymentPeriodText }}</p>
           </div>
         </div>

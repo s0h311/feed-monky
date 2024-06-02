@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar grid place-items-center desktop:grid-cols-3">
-    <HomeLogo />
+    <HomeLogo class="place-self-start" />
 
     <div class="space-x-3 desktop:space-x-7">
       <NuxtLink

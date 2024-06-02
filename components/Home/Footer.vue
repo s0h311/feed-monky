@@ -25,11 +25,11 @@ const contactLinks = {
   links: [
     {
       title: 'Help',
-      path: '/help',
+      path: '/contact',
     },
     {
       title: 'Feedback',
-      path: '/feedback',
+      path: '/contact',
     },
   ],
 }
@@ -39,15 +39,15 @@ const legalLinks = {
   links: [
     {
       title: 'Imprint',
-      path: '/imprint',
+      path: '/legal/imprint',
     },
     {
       title: 'Privacy policy',
-      path: '/privacyPolicy',
+      path: '/legal/privacyPolicy',
     },
     {
       title: 'Terms',
-      path: '/terms',
+      path: '/legal/terms',
     },
   ],
 }

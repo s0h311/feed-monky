@@ -12,12 +12,42 @@
     </div>
 
     <aside
-      class="absolute top-0 z-10 h-screen w-3/4 rounded-r bg-neutral p-4 text-base-200 duration-300 ease-out"
+      class="fixed top-0 z-10 h-screen w-3/5 rounded-r bg-neutral p-5 text-base-200 duration-300 ease-out"
       :class="showSideMenu ? 'left-0' : 'left-[-100%]'"
     >
-      SIDEBAR
+      <div class="flex flex-col gap-5">
+        <button
+          class="mb-5"
+          @click="showSideMenu = false"
+        >
+          <IconX class="ml-auto" />
+        </button>
 
-      <button @click="showSideMenu = false">CLOSE</button>
+        <NuxtLink
+          v-if="additionalLinks"
+          v-for="{ path, title } in additionalLinks"
+          :key="path"
+          :to="path"
+        >
+          {{ title }}
+        </NuxtLink>
+
+        <hr />
+
+        <a
+          v-for="{ path, title } in links"
+          class="cursor-pointer"
+          :key="path"
+          @click="
+            () => {
+              showSideMenu = false
+              navigateTo(path)
+            }
+          "
+        >
+          {{ title }}
+        </a>
+      </div>
     </aside>
   </nav>
 </template>

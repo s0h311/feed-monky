@@ -4,7 +4,7 @@
     :bottom-links="bottomLinks"
     :bottom-btns="bottomBtns"
   >
-    <HomeLogo small />
+    <HomeLogo />
   </UISidebar>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar grid place-items-center desktop:grid-cols-3">
+  <nav class="grid place-items-center desktop:grid-cols-3">
     <HomeLogo class="place-self-start" />
 
     <div class="space-x-3 desktop:space-x-7">

@@ -8,7 +8,7 @@
         <IconMenu />
       </button>
 
-      <HomeLogo small />
+      <HomeLogo />
     </div>
 
     <aside

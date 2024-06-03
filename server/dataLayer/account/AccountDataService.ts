@@ -39,7 +39,7 @@ export default class AccountDataService {
     return site
   }
 
-  public async delete(userId: string): Promise<void> {
+  public async delete(userId: string, email: string): Promise<void> {
     const { data: fetchSiteData, error: fetchSiteError } = await this.supabase
       .from('site')
       .select('name, id')
@@ -73,7 +73,7 @@ export default class AccountDataService {
       throw logger.error(deleteSiteError.message, 'AccountDataService - delete', true, { siteId })
     }
 
-    const { data: deleteUserData, error: deleteUserError } = await this.supabase.auth.admin.deleteUser(userId)
+    const { error: deleteUserError } = await this.supabase.auth.admin.deleteUser(userId)
 
     if (deleteUserError) {
       throw logger.error(deleteUserError.message, 'AccountDataService - delete', true, { userId })
@@ -82,7 +82,7 @@ export default class AccountDataService {
     await this.mailClient.send({
       recipient: {
         name: fetchSiteData.name,
-        email: deleteUserData.user.email!,
+        email: email,
       },
       templateId: 9,
     })

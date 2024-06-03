@@ -4,7 +4,6 @@
 
     <table class="table w-fit">
       <tr>
-        <!--TODO save subscription type into database-->
         <th>type</th>
         <td>{{ subscription.type.toUpperCase() }}</td>
       </tr>

@@ -11,7 +11,7 @@
 
   <UIConfirmationDialog
     ref="deleteAccountConfirmationDialog"
-    title="Do you really want to delete you account"
+    title="Do you really want to delete your account"
     text="You will not be able to undo the deletion."
     continue-button-text="Delete permanently"
     @continue-click="handleDeleteAccount"

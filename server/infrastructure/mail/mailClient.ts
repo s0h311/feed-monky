@@ -53,7 +53,7 @@ export default class MailClient {
     })
 
     if (status > 399) {
-      throw logger.error(statusText, 'MailClient - send', true)
+      throw logger.error(statusText, 'MailClient - send', true, { body })
     }
   }
 

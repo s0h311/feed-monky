@@ -17,7 +17,7 @@
         primary
         @handle-click="closeModal"
       >
-        Abbrechen
+        {{ cancelButtonText ?? 'Cancel' }}
       </UICta>
 
       <UICta
@@ -36,6 +36,7 @@
 type Props = {
   title: string
   text?: string
+  cancelButtonText?: string
   continueButtonText: string
 }
 

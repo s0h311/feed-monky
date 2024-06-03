@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="chartFeedbacksLast30Days"></canvas>
+  <canvas ref="chartFeedbacksLast30Days" />
 </template>
 
 <script setup lang="ts">

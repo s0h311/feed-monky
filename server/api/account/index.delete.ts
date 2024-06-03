@@ -5,10 +5,10 @@ import AccountDataService from '../../dataLayer/account/AccountDataService'
 export default defineEventHandler(async (event): Promise<void> => {
   const user = await serverSupabaseUser(event)
 
-  if (!user) {
+  if (!user || !user.email) {
     throw logger.error('Unable to delete user, no user found', 'Account Delete API', true)
   }
 
   const accountDataService = new AccountDataService()
-  await accountDataService.delete(user.id)
+  await accountDataService.delete(user.id, user.email)
 })

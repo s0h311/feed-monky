@@ -21,7 +21,7 @@
         v-model="fields.newPassword"
         class="input input-bordered"
         type="text"
-        placeholder="Neues Password"
+        placeholder="New password"
       />
 
       <p
@@ -91,7 +91,7 @@ async function requestOtp(): Promise<void> {
 
   isLoadingRequestOtp.value = false
   showPasswordResetForm.value = true
-  requestOtpButtonDisabled.value = 'Nächste Anfrage in 60 Sekunden möglich'
+  requestOtpButtonDisabled.value = 'You must wait 60 seconds before requesting a new code'
 
   setTimeout(() => {
     requestOtpButtonDisabled.value = ''
@@ -111,6 +111,7 @@ async function handleSubmit({ newPassword, otp }: { newPassword: string; otp: st
   }
 
   isLoadingResetPassword.value = false
+  showPasswordResetForm.value = false
   requestOtpButtonDisabled.value = ''
   reset()
 }

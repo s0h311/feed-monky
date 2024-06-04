@@ -32,14 +32,7 @@ const iframeSrc = computed(() => {
   return `${protocol}//${host}/api/template?siteId=${site.id}`
 })
 const code = computed(() => {
-  return (
-    '<iframe' +
-    ' src="' +
-    iframeSrc.value +
-    '" ' +
-    'style="position: absolute; right: 0; bottom: 0; width: 100dvw; height: 100dvh">' +
-    '</iframe>'
-  )
+  return ''
 })
 
 function copyCode(): void {

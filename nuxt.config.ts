@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/test-utils/module', '@nuxtjs/supabase'],
+  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/test-utils/module', '@nuxtjs/supabase', '@nuxt/content'],
   app: {
     head: {
       title: 'Feed Monky',

@@ -2,7 +2,7 @@
   <section class="grid">
     <DashboardSidebar />
 
-    <main class="p-10">
+    <main class="h-screen overflow-y-scroll p-10">
       <slot />
     </main>
   </section>

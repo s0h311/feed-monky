@@ -1,27 +1,6 @@
 <html>
   <head>
     <style>
-      #feed-monky-button {
-        position: absolute;
-        right: 10%;
-        bottom: 0;
-
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        padding: 6px;
-        background-color: rgb(249 115 22);
-        color: white;
-        font-weight: 600;
-        border: none;
-        cursor: pointer;
-      }
-
-      #feed-monky-button:hover {
-        background-color: white;
-        color: rgb(249 115 22);
-        outline: 2px solid rgb(249 115 22);
-      }
-
       #feed-monky-dialog {
         border: none;
         border-radius: 8px;
@@ -109,6 +88,15 @@
     </style>
 
     <script>
+      let parentOrigin = ''
+
+      addEventListener('message', (event) => {
+        if (event.data === 'dialog.open') {
+          parentOrigin = event.origin
+          openDialog()
+        }
+      })
+
       function openDialog() {
         /**
          * @type {HTMLDialogElement}
@@ -130,6 +118,8 @@
 
         form.reset()
         dialog.close()
+
+        parent.postMessage('dialog.close', parentOrigin)
       }
 
       /**
@@ -163,13 +153,6 @@
     </script>
   </head>
   <body>
-    <button
-      id="feed-monky-button"
-      onclick="openDialog()"
-    >
-      Feedback
-    </button>
-
     <dialog id="feed-monky-dialog">
       <div class="feed-monky-dialog-head">
         <h2>We value your feedback</h2>

@@ -1,12 +1,13 @@
 <template>
   <ContentDoc
     class="w-fit"
-    path="embeddings/vanilla"
+    path="embedding"
   />
 </template>
 
 <script setup lang="ts">
 definePageMeta({
   layout: 'dashboard-grid',
+  middleware: ['auth'],
 })
 </script>

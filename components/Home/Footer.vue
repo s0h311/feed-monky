@@ -57,5 +57,9 @@ const attributions = [
     title: 'Mammal icons created by Buandesign - Flaticon',
     path: 'https://www.flaticon.com/free-icons/mammal',
   },
+  {
+    title: 'User icons created by POD Gladiator - Flaticon',
+    path: 'https://www.flaticon.com/free-icons/user',
+  },
 ]
 </script>

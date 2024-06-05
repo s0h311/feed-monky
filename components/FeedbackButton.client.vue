@@ -1,8 +1,8 @@
 <template>
   <iframe
-    class="fixed left-0 top-0 -z-50 h-screen w-screen"
     ref="feedMonkyIframe"
-    :src
+    class="fixed left-0 top-0 -z-50 h-screen w-screen"
+    src="http://localhost:3000/api/template?siteId=53e38ede-1ade-48c0-b364-746308355bf5"
   />
 
   <button
@@ -16,32 +16,31 @@
 <script setup lang="ts">
 const feedMonkyIframe = ref<HTMLIFrameElement>()
 
-const protocol = window.location.protocol
-const host = window.location.host
-
-const src = computed(() => `${protocol}//${host}/api/template?siteId=4dabc61f-4c0f-4c29-88ed-052731fcd0ed`)
+onMounted(() => {
+  addEventListener('message', (event) => {
+    if (event.origin === 'http://localhost:3000') {
+      // hideIframe()
+    }
+  })
+})
 
 function openDialog(): void {
   const iframe = feedMonkyIframe.value
 
-  if (!iframe || !iframe.contentDocument) {
+  if (!iframe || !iframe.contentWindow) {
     return
   }
 
   iframe.style.zIndex = '10000'
+  iframe.contentWindow.postMessage('dialog.open', 'http://localhost:3000')
+}
 
-  // @ts-expect-error
-  iframe.contentWindow?.openDialog()
+function hideIframe(): void {
+  const iframe = feedMonkyIframe.value
 
-  const dialog = iframe.contentDocument.getElementById('feed-monky-dialog') as HTMLDialogElement
-
-  const interval = setInterval(() => {
-    if (!dialog.open) {
-      iframe.style.zIndex = '-10000'
-
-      clearInterval(interval)
-    }
-  }, 300)
+  if (iframe) {
+    iframe.style.zIndex = '-10000'
+  }
 }
 </script>
 

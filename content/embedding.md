@@ -144,7 +144,7 @@ import { useEffect, useRef } from 'react'
 export default function FeedbackButton() {
   useEffect(() => {
     addEventListener('message', (event) => {
-      if (event.origin === 'http://localhost:3000') {
+      if (event.origin === 'https://feedmonky.com') {
         hideIframe()
       }
     })
@@ -160,7 +160,7 @@ export default function FeedbackButton() {
     }
 
     iframe.style.zIndex = '10000'
-    iframe.contentWindow.postMessage('dialog.open', 'http://localhost:3000')
+    iframe.contentWindow.postMessage('dialog.open', 'https://feedmonky.com')
   }
 
   function hideIframe() {

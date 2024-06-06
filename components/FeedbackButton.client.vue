@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 const site = (await useSite()).value!
-const src = computed(() => `http://localhost:3000/api/template?siteId=${site.id}`)
+const src = computed(() => `https://feedmonky.com/api/template?siteId=${site.id}`)
 
 const feedMonkyIframe = ref<HTMLIFrameElement>()
 

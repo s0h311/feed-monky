@@ -20,7 +20,7 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
     benefits: ['Continual improvements', '24/7 Customer service', 'Best for small businesses'],
     isPremium: false,
     description: `With this plan feedbacks don't get summarized.You can switch to Pro plan anytime.`,
-    priceId: 'price_1PIR0aBzByKpK824DmpXhyT2',
+    priceId: 'price_1POgtqBzByKpK824CECRC3aM',
   },
   {
     title: 'Pro <small> - pay as you go</small>',
@@ -38,7 +38,7 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
     Starting from the 21st each feedback gets summarized for 0.05$.
     You can switch to Starter plan anytime.
     `,
-    priceId: 'price_1PITK0BzByKpK824tlzt3jti',
+    priceId: 'price_1POgtuBzByKpK824CSOmHeUz',
   },
 ]
 

@@ -5,7 +5,8 @@ export default defineEventHandler(async (event) => {
 
   const siteId = params.siteId ?? 'unknown'
 
-  const template = await useStorage('templates').getItem('feedMonkyButton.html')
+  const assets = useStorage('assets:server')
+  const template = await assets.getItem('feedMonkyButton.html')
 
   if (!template) {
     throw logger.error('Template not found', 'Template API', true, { siteId })

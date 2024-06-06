@@ -19,14 +19,6 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
   },
-  nitro: {
-    storage: {
-      templates: {
-        driver: 'fs',
-        base: 'templates/',
-      },
-    },
-  },
   content: {
     highlight: {
       theme: 'github-dark-default',

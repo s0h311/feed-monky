@@ -2,7 +2,7 @@
   <iframe
     ref="feedMonkyIframe"
     class="fixed left-0 top-0 -z-50 h-screen w-screen"
-    src="http://localhost:3000/api/template?siteId=53e38ede-1ade-48c0-b364-746308355bf5"
+    :src
   />
 
   <button
@@ -14,6 +14,9 @@
 </template>
 
 <script setup lang="ts">
+const site = (await useSite()).value!
+const src = computed(() => `http://localhost:3000/api/template?siteId=${site.id}`)
+
 const feedMonkyIframe = ref<HTMLIFrameElement>()
 
 function openDialog(): void {

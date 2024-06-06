@@ -16,7 +16,9 @@ export async function useFeedbacks(): Promise<Ref<Feedback[]>> {
 
   logger.warn('FETCHING', 'useFeedbacks')
 
-  const { data, error } = await supabase.from('feedback').select().eq('site_id', site.id)
+  const { data, error } = await supabase.from('feedback').select().eq('site_id', site.id).order('created_at', {
+    ascending: false,
+  })
 
   if (error) {
     throw logger.error(error.message, 'useFeedbacks', true, { siteId: site.id })

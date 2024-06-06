@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import type { FeedbackSummary } from '~/types/types'
+import type { FeedbackSummary } from '~/server/dataLayer/types'
 
 const feedbacks = await useFeedbacks()
 const feedbackSummaries = await useFeedbackSummaries()

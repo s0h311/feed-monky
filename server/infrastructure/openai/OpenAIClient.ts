@@ -11,8 +11,7 @@ export default class OpenAIClient {
 
   constructor() {
     this.openai = new OpenAI({
-      // TODO use real key
-      apiKey: process.env.OPENAI_API_FAKE_KEY,
+      apiKey: process.env.OPENAI_API_KEY,
     })
   }
 

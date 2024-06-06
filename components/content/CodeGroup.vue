@@ -1,16 +1,25 @@
 <template>
-  <div class="rounded-lg border-2 px-4 py-3">
+  <div class="rounded-lg border-2 bg-[#0e1116] px-4 py-3">
     <div class="flex items-center gap-5">
       <button @click="visibleTab = 0">
-        <IconJavaScript md />
+        <IconJavaScript
+          fill-color="fill-white"
+          md
+        />
       </button>
 
       <button @click="visibleTab = 1">
-        <IconVue md />
+        <IconVue
+          fill-color="fill-white"
+          md
+        />
       </button>
 
       <button @click="visibleTab = 2">
-        <IconReact md />
+        <IconReact
+          fill-color="fill-white"
+          md
+        />
       </button>
 
       <!--
@@ -24,7 +33,7 @@
 
     <div
       id="codeGroup"
-      class="*:hidden"
+      class="text-sm *:hidden"
     >
       <ContentSlot :use="$slots.default" />
     </div>

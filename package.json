@@ -27,7 +27,6 @@
     "nuxt": "^3.11.2",
     "openai": "^4.47.3",
     "pino": "^9.0.0",
-    "prismjs": "^1.29.0",
     "stripe": "^15.5.0",
     "ts-case-convert": "^2.0.7",
     "vue": "^3.4.21",
@@ -37,7 +36,6 @@
   "devDependencies": {
     "@nuxt/eslint": "^0.3.10",
     "@nuxt/test-utils": "^3.13.1",
-    "@types/prismjs": "^1.26.4",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.10.5",
     "eslint": "^8.57.0",

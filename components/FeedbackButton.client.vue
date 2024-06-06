@@ -16,31 +16,24 @@
 <script setup lang="ts">
 const feedMonkyIframe = ref<HTMLIFrameElement>()
 
-onMounted(() => {
-  addEventListener('message', (event) => {
-    if (event.origin === 'http://localhost:3000') {
-      // hideIframe()
-    }
-  })
-})
-
 function openDialog(): void {
   const iframe = feedMonkyIframe.value
 
-  if (!iframe || !iframe.contentWindow) {
+  if (!iframe || !iframe.contentWindow || !iframe.contentDocument) {
     return
   }
 
   iframe.style.zIndex = '10000'
-  iframe.contentWindow.postMessage('dialog.open', 'http://localhost:3000')
-}
+  // @ts-expect-error
+  iframe.contentWindow.openDialog()
 
-function hideIframe(): void {
-  const iframe = feedMonkyIframe.value
-
-  if (iframe) {
-    iframe.style.zIndex = '-10000'
-  }
+  const interval = setInterval(() => {
+    const dialog = iframe.contentDocument?.getElementsByTagName('dialog')[0]
+    if (!dialog?.open) {
+      iframe.style.zIndex = '-10000'
+      clearInterval(interval)
+    }
+  }, 300)
 }
 </script>
 

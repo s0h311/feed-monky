@@ -62,7 +62,7 @@ export default class StripeCheckoutService {
           paymentPeriod,
           subscriptionType,
         },
-        payment_method_types: ['paypal', 'card', 'sepa_debit', 'giropay', 'mobilepay'],
+        payment_method_types: ['paypal'],
       }
 
       if (isAddressRequired) {

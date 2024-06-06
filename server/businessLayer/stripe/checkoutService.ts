@@ -21,11 +21,11 @@ export default class StripeCheckoutService {
   }
 
   private subscriptionDetails: Record<string, { isMetered: boolean; subscriptionType: Subscription['type'] }> = {
-    price_1PIR0aBzByKpK824DmpXhyT2: {
+    price_1POgtqBzByKpK824CECRC3aM: {
       isMetered: false,
       subscriptionType: 'starter',
     },
-    price_1PITK0BzByKpK824tlzt3jti: {
+    price_1POgtuBzByKpK824CSOmHeUz: {
       isMetered: true,
       subscriptionType: 'pro',
     },

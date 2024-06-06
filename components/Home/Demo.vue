@@ -7,7 +7,7 @@
 
     <iframe
       class="aspect-video w-full rounded-lg shadow-md outline-none tablet:w-[70dvw] desktop:w-[50dvw]"
-      src="https://www.youtube.com/embed/bKDdT_nyP54?si=QYNp4bN9opyFfGRy"
+      src="https://www.youtube.com/embed/W12eaVpC5ko?si=6uTNQFREB0ItM6-7"
       title="Demo video"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

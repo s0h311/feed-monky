@@ -9,7 +9,7 @@
     id="feed-monky-button"
     @click="openDialog"
   >
-    Feedback
+    Click to try out
   </button>
 </template>
 

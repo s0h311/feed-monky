@@ -4,10 +4,10 @@
   <table>
     <thead>
       <tr>
-        <th>Id</th>
         <th>Summary</th>
         <th>Count</th>
         <th>First occurred at</th>
+        <th>Last occurred at</th>
       </tr>
     </thead>
 
@@ -16,16 +16,17 @@
         v-for="feedbackSummary in feedbackSummaries"
         :key="feedbackSummary.id"
       >
-        <td>{{ feedbackSummary.id }}</td>
         <td>{{ feedbackSummary.summary }}</td>
         <td>{{ getCount(feedbackSummary.id) }}</td>
         <td>{{ formatDate(new Date(feedbackSummary.createdAt)) }}</td>
+        <td>{{ formatDate(getLastOccurrence(feedbackSummary.id)) }}</td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script setup lang="ts">
+import { differenceInBusinessDays } from 'date-fns'
 import type { FeedbackSummary } from '~/server/dataLayer/types'
 
 const feedbacks = await useFeedbacks()
@@ -39,5 +40,20 @@ function getCount(feedbackSummaryId: FeedbackSummary['id']): number {
   })
 
   return count
+}
+
+function getLastOccurrence(feedbackSummaryId: FeedbackSummary['id']): Date {
+  const lastFeedback = feedbacks.value
+    .filter((f) => f.feedbackSummaryId === feedbackSummaryId)
+    .sort((a, b) => differenceInBusinessDays(a.createdAt, b.createdAt))
+    .pop()
+
+  if (!lastFeedback) {
+    throw logger.error('No feedback found', 'DashboardFeedbackSummaryList - getLastOccurence', true, {
+      feedbackSummaryId,
+    })
+  }
+
+  return new Date(lastFeedback.createdAt)
 }
 </script>

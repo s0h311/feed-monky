@@ -4,11 +4,10 @@
   <table>
     <thead>
       <tr>
-        <th>Id</th>
         <th>Feeback</th>
         <th>Summary</th>
         <th>Customer E-Mail</th>
-        <th>Date</th>
+        <th>From</th>
       </tr>
     </thead>
 
@@ -17,7 +16,6 @@
         v-for="feedback in feedbacks"
         :key="feedback.id"
       >
-        <td>{{ feedback.id }}</td>
         <td class="max-w-md">{{ feedback.feedbackText }}</td>
         <td>{{ feedback.feedbackSummaryId ? getFeedbackSummaryText(feedback.feedbackSummaryId) : '-' }}</td>
         <td>{{ feedback.customerEmail ?? '-' }}</td>

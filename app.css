@@ -23,7 +23,7 @@ H4 {
 }
 
 mark {
-  @apply bg-accent text-base-100;
+  @apply bg-gradient-to-r from-accent to-orange-300 text-base-100;
 }
 
 table {

@@ -63,6 +63,7 @@ export default class StripeCheckoutService {
           subscriptionType,
         },
         payment_method_types: ['paypal'],
+        allow_promotion_codes: true
       }
 
       if (isAddressRequired) {

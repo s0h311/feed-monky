@@ -3,10 +3,11 @@
     <div>
       <h2 class="mb-14 max-w-md text-5xl">{{ title }}</h2>
 
-      <p class="max-w-md text-xl">
-        Embed it into your website <br />
-        in under 5 minutes.
-      </p>
+      <p
+        v-if="text"
+        v-html="text"
+        class="max-w-md text-xl"
+      />
     </div>
 
     <div class="w-full rounded-lg bg-neutral py-12 text-neutral-content">
@@ -17,11 +18,10 @@
           :key="'supported-item-' + index"
         >
           <NuxtImg
-            class="object-contain"
+            class="max-w-32 object-contain"
             :src="icon"
             :alt="name"
-            width="auto"
-            height="60"
+            width="60"
           />
 
           {{ name }}
@@ -39,6 +39,7 @@ type SupportedItem = {
 
 type Props = {
   title: string
+  text?: string
   items: SupportedItem[]
 }
 

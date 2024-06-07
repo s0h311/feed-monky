@@ -1,6 +1,7 @@
 <template>
   <UISupports
     title="Use your favorite framework"
+    text="Embed it into your website <br /> in under 5 minutes."
     :items="frameworks"
   />
 </template>

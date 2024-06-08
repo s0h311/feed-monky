@@ -1,7 +1,7 @@
 <template>
   <section class="grid items-center gap-20 text-center tablet:grid-cols-2">
     <div>
-      <h2 class="mb-14 max-w-md text-5xl">{{ title }}</h2>
+      <h2 class="mb-14 max-w-md tablet:text-5xl">{{ title }}</h2>
 
       <p
         v-if="text"

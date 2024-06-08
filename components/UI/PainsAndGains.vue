@@ -9,7 +9,8 @@
           :key="'pain' + index"
           class="flex gap-2"
         >
-          <IconX stroke-color="stroke-red-500" /> {{ pain }}
+          <IconX stroke-color="stroke-red-500" />
+          {{ pain }}
         </li>
       </ul>
 

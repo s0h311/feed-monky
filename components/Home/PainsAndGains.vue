@@ -8,15 +8,15 @@
 
 <script setup lang="ts">
 const pains = [
-  'Wasting time reading every single feedback',
-  'Harder to understand your customers',
-  'Unable to start building features your users value',
+  'Wasting time reading every single feedback 🥱',
+  'Harder to understand your customers 😵‍💫',
+  'Unable to start shipping features your users value 🤬',
 ]
 
 const gains = [
-  'Feedbacks get automatically categorized',
-  'Read the summaries in seconds',
-  'Understand your customers needs',
-  'Start shipping features faster',
+  'Feedbacks get automatically turned into actions 📋',
+  'See what your users value in matter of seconds 🤩',
+  'Start shipping features faster 🚀',
+  'Save time and money 💸',
 ]
 </script>

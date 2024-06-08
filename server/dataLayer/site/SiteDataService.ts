@@ -18,15 +18,20 @@ export default class SiteDataService {
   }: {
     userId: string
     name: string
-    stripeCustomerId: string
+    stripeCustomerId: string | null
   }): Promise<Site> {
+    const insertData: Database['public']['Tables']['site']['Insert'] = {
+      user_id: userId,
+      name,
+    }
+
+    if (stripeCustomerId !== null) {
+      insertData['stripe_customer_id'] = stripeCustomerId
+    }
+
     const { data: siteCreateData, error: siteCreateError } = await this.supabase
       .from('site')
-      .insert({
-        user_id: userId,
-        stripe_customer_id: stripeCustomerId,
-        name,
-      })
+      .insert(insertData)
       .select()
       .single()
 

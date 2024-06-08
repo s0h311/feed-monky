@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import FeedbackHandler from '../../businessLayer/feedback/FeedbackHandler'
+import FeedbackService from '../../businessLayer/feedback/FeedbackService'
 import { Feedback } from '../../dataLayer/types'
 
 export default defineEventHandler(async (event) => {
@@ -7,8 +7,8 @@ export default defineEventHandler(async (event) => {
 
   const data = validateData(JSON.parse(body))
 
-  const feedbackHandler = new FeedbackHandler()
-  await feedbackHandler.execute(data as Feedback)
+  const feedbackService = new FeedbackService()
+  await feedbackService.execute(data as Feedback)
 })
 
 function validateData<T>(data: T): T {

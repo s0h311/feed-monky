@@ -1,7 +1,7 @@
 import FeedbackDataService from '../../dataLayer/feedback/FeedbackDataService'
 import { Feedback } from '../../dataLayer/types'
 
-export default class FeedbackHandler {
+export default class FeedbackService {
   private feedbackDataService: FeedbackDataService
 
   constructor() {

@@ -4,7 +4,7 @@ import type { Subscription } from '../types'
 import logger from '~/utils/logger'
 import supabase from '../../infrastructure/supabase/supabaseClient'
 
-export default class SubscriptionService {
+export default class SubscriptionDataService {
   private supabase: SupabaseClient<Database>
 
   constructor() {
@@ -23,7 +23,7 @@ export default class SubscriptionService {
     })
 
     if (error) {
-      throw logger.error(error.message, 'SubscriptionService - create', true, { siteId })
+      throw logger.error(error.message, 'SubscriptionDataService - create', true, { siteId })
     }
   }
 
@@ -36,7 +36,7 @@ export default class SubscriptionService {
       .eq('site_id', siteId)
 
     if (error) {
-      throw logger.error(error.message, 'SubscriptionService - updateLastPayment', true, { siteId })
+      throw logger.error(error.message, 'SubscriptionDataService - updateLastPayment', true, { siteId })
     }
   }
 
@@ -44,7 +44,7 @@ export default class SubscriptionService {
     const { error } = await this.supabase.from('subscription').delete().eq('site_id', siteId)
 
     if (error) {
-      throw logger.error(error.message, 'SubscriptionService - delete', true, { siteId })
+      throw logger.error(error.message, 'SubscriptionDataService - delete', true, { siteId })
     }
   }
 }

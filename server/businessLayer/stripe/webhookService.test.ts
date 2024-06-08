@@ -20,10 +20,10 @@ vi.mock('../../dataDomain/account/accountDataService', () => {
   return { default: AccountDataService }
 })
 
-vi.mock('../../server/dataDomain/services/subscriptionService', () => {
-  const SubscriptionService = vi.fn()
-  SubscriptionService.prototype.create = vi.fn()
-  SubscriptionService.prototype.updateLastPayment = vi.fn()
+vi.mock('../../dataLayer/subscription/SubscriptionDataService', () => {
+  const SubscriptionDataService = vi.fn()
+  SubscriptionDataService.prototype.create = vi.fn()
+  SubscriptionDataService.prototype.updateLastPayment = vi.fn()
   return { default: SubscriptionDataService }
 })
 

@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
-    <FeedbackButton />
+    <!--<FeedbackButton />-->
   </NuxtLayout>
 </template>

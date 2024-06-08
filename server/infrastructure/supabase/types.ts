@@ -55,19 +55,19 @@ export type Database = {
         Row: {
           created_at: string
           id: number
-          site_id: string
+          site_id: string | null
           summary: string
         }
         Insert: {
           created_at?: string
           id?: number
-          site_id: string
+          site_id?: string | null
           summary: string
         }
         Update: {
           created_at?: string
           id?: number
-          site_id?: string
+          site_id?: string | null
           summary?: string
         }
         Relationships: [
@@ -85,21 +85,21 @@ export type Database = {
           created_at: string
           id: string
           name: string
-          stripe_customer_id: string
+          stripe_customer_id: string | null
           user_id: string | null
         }
         Insert: {
           created_at?: string
           id?: string
           name: string
-          stripe_customer_id: string
+          stripe_customer_id?: string | null
           user_id?: string | null
         }
         Update: {
           created_at?: string
           id?: string
           name?: string
-          stripe_customer_id?: string
+          stripe_customer_id?: string | null
           user_id?: string | null
         }
         Relationships: [
@@ -281,7 +281,7 @@ export type Database = {
     }
     Enums: {
       payment_period: "monthly" | "yearly" | "lifetime"
-      type: "starter" | "pro"
+      type: "starter" | "pro" | "trial"
     }
     CompositeTypes: {
       [_ in never]: never

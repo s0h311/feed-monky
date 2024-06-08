@@ -5,7 +5,7 @@
     <div>
       <DashboardOverviewChartFeedbacksInLast30Days />
     </div>
-    <div v-if="subscription.type === 'pro'">
+    <div v-if="subscription.type !== 'starter'">
       <DashboardOverviewChartMostPopularFeedbackSummaries />
     </div>
   </div>

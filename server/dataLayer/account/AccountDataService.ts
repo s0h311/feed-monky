@@ -27,7 +27,7 @@ export default class AccountDataService {
   }: {
     name: string
     email: string
-    stripeCustomerId: string
+    stripeCustomerId: string | null
   }): Promise<Site> {
     const randomPassword = this.generateRandomPassword()
 

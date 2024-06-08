@@ -14,11 +14,9 @@
 </template>
 
 <script setup lang="ts">
-const site = (await useSite()).value!
-
 const src = computed(() => {
   const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://feedmonky.com'
-  return `${baseUrl}/api/template?siteId=${site.id}`
+  return `${baseUrl}/api/template?siteId=a7301760-3957-42c6-9d6c-98bdb545159c`
 })
 
 const feedMonkyIframe = ref<HTMLIFrameElement>()

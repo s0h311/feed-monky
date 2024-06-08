@@ -46,7 +46,7 @@
       :is-loading="isLoading"
       type="submit"
     >
-      Start 14 days free trial
+      Start 14 days trial
     </UICta>
   </form>
 </template>

@@ -3,7 +3,7 @@
     id="pricing"
     title="Pricing"
     :pricing-options="pricingOptions"
-    cta-title="Get it"
+    cta-title="Start 14 days trial"
     :handle-fn="handleGoToCheckout"
   />
 </template>
@@ -43,6 +43,9 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
 ]
 
 async function handleGoToCheckout(pricingOptionIndex: number): Promise<void> {
+  navigateTo('/signup')
+  return
+
   const pricingOption = pricingOptions[pricingOptionIndex]
 
   const stripeCheckoutUrl: string = await $fetch('/api/stripe/checkout', {

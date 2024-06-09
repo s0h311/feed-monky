@@ -1,8 +1,10 @@
 <template>
   <form
-    class="mx-auto grid max-w-[275px] place-items-center gap-5"
+    class="mx-auto grid max-w-[275px] place-items-center gap-7"
     @submit.prevent="submit(signup)"
   >
+    <h1 class="mb-7 text-2xl font-semibold">Signup</h1>
+
     <div>
       <label class="input input-bordered flex items-center gap-2">
         <IconUser />
@@ -10,7 +12,7 @@
         <input
           v-model="fields.name"
           type="text"
-          placeholder="Name"
+          placeholder="John"
         />
       </label>
 
@@ -29,7 +31,7 @@
         <input
           v-model="fields.email"
           type="email"
-          placeholder="Email"
+          placeholder="john@doe.com"
         />
       </label>
 

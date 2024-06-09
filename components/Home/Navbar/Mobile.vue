@@ -24,11 +24,17 @@
         </button>
 
         <NuxtLink
+          class="flex items-center gap-2"
           v-if="additionalLinks"
-          v-for="{ path, title } in additionalLinks"
+          v-for="{ path, title, icon } in additionalLinks"
           :key="path"
           :to="path"
         >
+          <component
+            v-if="icon"
+            :is="icon"
+          />
+
           {{ title }}
         </NuxtLink>
 
@@ -56,6 +62,7 @@
 type Link = {
   title: string
   path: string
+  icon?: unknown
 }
 
 type Props = {

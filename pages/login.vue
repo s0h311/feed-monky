@@ -1,12 +1,14 @@
 <template>
   <div class="grid place-items-center gap-7">
+    <h1 class="mb-7 text-2xl font-semibold">Login</h1>
+
     <label class="input input-bordered flex items-center gap-2">
       <IconEmail />
       <input
         v-model="credentials.email"
         type="text"
         class="grow"
-        placeholder="E-Mail"
+        placeholder="john@doe.com"
       />
     </label>
 
@@ -16,7 +18,7 @@
         v-model="credentials.password"
         type="password"
         class="grow"
-        placeholder="Passwort"
+        placeholder="••••••••"
       />
     </label>
 
@@ -25,7 +27,7 @@
       :is-loading="isLoading"
       @handle-click="handleLogin"
     >
-      Einloggen
+      Login
     </UICta>
   </div>
 </template>

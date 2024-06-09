@@ -1,6 +1,6 @@
 <template>
-  <div class="text-center">
-    <h2 class="mb-14">{{ title }}</h2>
+  <div>
+    <h2 class="mb-14 text-center">{{ title }}</h2>
 
     <div class="grid gap-20 tablet:grid-cols-2 tablet:gap-10 desktop:gap-20">
       <div

@@ -12,5 +12,10 @@
       title: 'How it works',
       path: '/#demo',
     }"
+    :customContent="HomeProductHuntBadge"
   />
 </template>
+
+<script setup lang="ts">
+import HomeProductHuntBadge from './ProductHuntBadge.vue'
+</script>

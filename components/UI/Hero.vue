@@ -18,13 +18,20 @@
         </li>
       </ul>
 
-      <NuxtLink
-        v-if="cta"
-        class="btn btn-primary"
-        :to="cta.path"
-      >
-        {{ cta.title }}
-      </NuxtLink>
+      <div class="grid place-items-center gap-5">
+        <NuxtLink
+          v-if="cta"
+          class="btn btn-primary"
+          :to="cta.path"
+        >
+          {{ cta.title }}
+        </NuxtLink>
+
+        <component
+          v-if="customContent"
+          :is="customContent"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +45,7 @@ type Props = {
     title: string
     path: string
   }
+  customContent?: unknown
 }
 
 defineProps<Props>()

@@ -1,13 +1,24 @@
 import { Chart } from 'chart.js/auto'
 
 type LineChartConfig = {
+  id?: string
   title: string
   xAxisLabels: string[]
   data: number[]
 }
 
-export function initLineChart(canvas: HTMLCanvasElement, { title, xAxisLabels, data }: LineChartConfig): void {
-  new Chart(canvas, {
+const charts = new Map<string, Chart>()
+
+export function destoryChart(id: string): void {
+  const chart = charts.get(id)
+
+  if (chart) {
+    chart.destroy()
+  }
+}
+
+export function initLineChart(canvas: HTMLCanvasElement, { id, title, xAxisLabels, data }: LineChartConfig): void {
+  const chart = new Chart(canvas, {
     type: 'line',
     data: {
       labels: xAxisLabels,
@@ -31,6 +42,10 @@ export function initLineChart(canvas: HTMLCanvasElement, { title, xAxisLabels, d
       },
     },
   })
+
+  if (id) {
+    charts.set(id, chart)
+  }
 }
 
 export function initBarChart(canvas: HTMLCanvasElement, { title, xAxisLabels, data }: LineChartConfig): void {

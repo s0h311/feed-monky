@@ -1,7 +1,7 @@
 import { differenceInDays } from 'date-fns'
 
 export function formatDate(date: Date): string {
-  return date.toLocaleDateString('default', { day: '2-digit', month: '2-digit', year: 'numeric' })
+  return date.toLocaleDateString('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' })
 }
 
 export function getLastNDates(numberOfDays: number, sortBy: 'asc' | 'desc' = 'desc'): Date[] {
@@ -21,5 +21,5 @@ export function getLastNDates(numberOfDays: number, sortBy: 'asc' | 'desc' = 'de
 }
 
 export function formatDateToDateAndMonth(date: Date): string {
-  return date.toLocaleDateString('default', { day: '2-digit', month: 'short' })
+  return date.toLocaleDateString('en-US', { day: '2-digit', month: 'short' })
 }

@@ -17,7 +17,7 @@ function initChart(): void {
   }
 
   initBarChart(chartMostPopularFeedbackSummaries.value, {
-    title: 'Most popular feedback summaries',
+    title: 'Most wanted TODOs',
     data: getMostPopularFeedbackSummaries().map((fs) => fs.count),
     xAxisLabels: getMostPopularFeedbackSummaries().map((fs) => fs.feedbackSummaryText),
   })

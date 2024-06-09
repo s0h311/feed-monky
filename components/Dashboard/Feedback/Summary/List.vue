@@ -1,10 +1,10 @@
 <template>
-  <h1 class="mb-10 text-xl">Feedback Summaries</h1>
+  <h1 class="mb-10 text-xl">TODOs</h1>
 
   <table>
     <thead>
       <tr>
-        <th>Summary</th>
+        <th>TODO</th>
         <th>Count</th>
         <th>First occurred at</th>
         <th>Last occurred at</th>

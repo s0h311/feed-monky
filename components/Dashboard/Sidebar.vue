@@ -15,7 +15,7 @@ const site = await useSite()
 const links = [
   { title: 'Overview', path: '/dashboard' },
   { title: 'Feedbacks', path: '/dashboard/feedback' },
-  { title: 'Summaries', path: '/dashboard/feedback/summary' },
+  { title: 'TODOs', path: '/dashboard/feedback/summary' },
   { title: 'Embedding', path: '/dashboard/embedding' },
 ]
 

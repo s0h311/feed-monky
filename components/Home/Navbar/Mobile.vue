@@ -23,12 +23,12 @@
           <IconX class="ml-auto" />
         </button>
 
-        <NuxtLink
+        <a
           class="flex items-center gap-2"
           v-if="additionalLinks"
           v-for="{ path, title, icon } in additionalLinks"
           :key="path"
-          :to="path"
+          @click="trackAndNavigate(title, path)"
         >
           <component
             v-if="icon"
@@ -36,7 +36,7 @@
           />
 
           {{ title }}
-        </NuxtLink>
+        </a>
 
         <hr />
 
@@ -47,7 +47,7 @@
           @click="
             () => {
               showSideMenu = false
-              navigateTo(path)
+              trackAndNavigate(title, path)
             }
           "
         >
@@ -73,4 +73,6 @@ type Props = {
 defineProps<Props>()
 
 const showSideMenu = ref<boolean>(false)
+
+const { trackAndNavigate } = useTracking('Mobile Navbar')
 </script>

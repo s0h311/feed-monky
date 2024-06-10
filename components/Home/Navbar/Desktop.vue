@@ -3,25 +3,25 @@
     <HomeLogo class="place-self-start" />
 
     <div class="space-x-3 desktop:space-x-7">
-      <NuxtLink
+      <a
         class="hover:underline"
         v-for="link in links"
         :key="link.path"
-        :to="link.path"
+        @click="trackAndNavigate(link.title, link.path)"
       >
         {{ link.title }}
-      </NuxtLink>
+      </a>
     </div>
 
     <div
       v-if="additionalLinks"
       class="space-x-3 justify-self-end"
     >
-      <NuxtLink
+      <a
         class="flex items-center gap-2 hover:underline"
         v-for="additionalLink in additionalLinks"
         :key="additionalLink.path"
-        :to="additionalLink.path"
+        @click="trackAndNavigate(additionalLink.title, additionalLink.path)"
       >
         <component
           v-if="additionalLink.icon"
@@ -29,7 +29,7 @@
         />
 
         {{ additionalLink.title }}
-      </NuxtLink>
+      </a>
     </div>
   </nav>
 </template>
@@ -45,6 +45,8 @@ type Props = {
   links: Link[]
   additionalLinks?: Link[]
 }
+
+const { trackAndNavigate } = useTracking('Desktop Navbar')
 
 defineProps<Props>()
 </script>

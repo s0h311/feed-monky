@@ -19,13 +19,13 @@
       </ul>
 
       <div class="grid place-items-center gap-5">
-        <NuxtLink
+        <a
           v-if="cta"
           class="btn btn-primary"
-          :to="cta.path"
+          @click="trackAndNavigate(cta.title, cta.path)"
         >
           {{ cta.title }}
-        </NuxtLink>
+        </a>
 
         <component
           v-if="customContent"
@@ -49,4 +49,6 @@ type Props = {
 }
 
 defineProps<Props>()
+
+const { trackAndNavigate } = useTracking('Hero')
 </script>

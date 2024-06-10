@@ -83,8 +83,12 @@ const props = defineProps<Props>()
 
 const isLoading = ref<number | null>(null)
 
+const { track } = useTracking('Pricing')
+
 async function handleSubmit(pricingOptionIndex: number): Promise<void> {
   isLoading.value = pricingOptionIndex
+
+  track(props.pricingOptions[pricingOptionIndex].title)
 
   props.handleFn(pricingOptionIndex).then(() => {
     isLoading.value = null

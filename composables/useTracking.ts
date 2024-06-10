@@ -5,17 +5,17 @@ export default function useTracking(componentName: string): {
   trackAndNavigate: (trackingName: string, href: string) => void
 } {
   const trackingCookie = useCookie('nt')
-  const trackingEnabled = trackingCookie.value === 'true'
+  const trackingDisabled = trackingCookie.value === 'true'
 
   return {
     track: (trackingName: string) => {
-      if (trackingEnabled) {
+      if (!trackingDisabled) {
         track(componentName + ' - ' + trackingName)
       }
     },
 
     trackAndNavigate: (trackingName: string, href: string) => {
-      if (trackingEnabled) {
+      if (!trackingDisabled) {
         track(componentName + ' - ' + trackingName)
       }
 

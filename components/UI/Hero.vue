@@ -20,6 +20,7 @@
 
       <div class="grid place-items-center gap-5">
         <a
+          id="hero-cta"
           v-if="cta"
           class="btn btn-primary"
           @click="trackAndNavigate(cta.title, cta.path)"
@@ -27,10 +28,16 @@
           {{ cta.title }}
         </a>
 
-        <component
-          v-if="customContent"
-          :is="customContent"
-        />
+        <div
+          v-if="customContent && customContent.length > 0"
+          class="flex flex-col items-center gap-5 tablet:flex-row"
+        >
+          <component
+            v-for="(content, index) in customContent"
+            :key="'custome-content-' + index"
+            :is="content"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +52,7 @@ type Props = {
     title: string
     path: string
   }
-  customContent?: unknown
+  customContent?: unknown[]
 }
 
 defineProps<Props>()

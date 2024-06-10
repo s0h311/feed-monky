@@ -1,7 +1,7 @@
 <template>
-  <UIHero
+  <UISideBySideHero
     title="Simple <mark>&nbsp;actions&nbsp;</mark> from long customer feedbacks"
-    text="Start shipping what matters most"
+    text="Try it for free. <u>No credit card</u> needed"
     :gains="[
       'Feedbacks get automatically turned into actions 📋',
       'See what your users value in matter of seconds 🤩',
@@ -9,10 +9,10 @@
       'Save time and money 💸',
     ]"
     :cta="{
-      title: 'How it works',
-      path: '/#demo',
+      title: 'Try it for free',
+      path: '/signup',
     }"
-    :customContent="HomeProductHuntBadge"
+    :customContent="[HomeProductHuntBadge]"
   />
 </template>
 

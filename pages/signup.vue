@@ -56,6 +56,10 @@
 <script setup lang="ts">
 import { z } from 'zod'
 
+definePageMeta({
+  middleware: ['not-auth'],
+})
+
 const isLoading = ref<boolean>(false)
 
 const { fields, errors, reset, submit } = useForm({

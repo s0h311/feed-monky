@@ -1,5 +1,12 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/test-utils/module', '@nuxtjs/supabase', '@nuxt/content'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/eslint',
+    '@nuxt/test-utils/module',
+    '@nuxtjs/supabase',
+    '@nuxt/content',
+    '@nuxtjs/sitemap',
+  ],
   app: {
     head: {
       title: 'Feed Monky',
@@ -23,5 +30,8 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark-default',
     },
+  },
+  site: {
+    url: 'https://feedmonky.com',
   },
 })

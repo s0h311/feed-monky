@@ -35,6 +35,10 @@ tbody tr {
   @apply *:px-5 *:py-1.5 *:text-start *:align-text-top;
 }
 
+a {
+  @apply cursor-pointer;
+}
+
 .btn,
 .input {
   @apply rounded-md;

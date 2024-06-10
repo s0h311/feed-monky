@@ -257,6 +257,12 @@
   </div>
 </template>
 
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Privacy Policy',
+})
+</script>
+
 <style scoped>
 h3 {
   @apply text-lg font-semibold;

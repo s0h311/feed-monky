@@ -35,12 +35,12 @@
 <script setup lang="ts">
 import logger from '~/utils/logger'
 
-definePageMeta({
-  middleware: ['not-auth'],
+useSeoMeta({
+  title: 'Login',
 })
 
-useSeoMeta({
-  title: 'Einloggen',
+definePageMeta({
+  middleware: ['not-auth'],
 })
 
 const supabase = useSupabaseClient()

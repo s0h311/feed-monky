@@ -7,4 +7,8 @@
   </NuxtLink>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Contact',
+})
+</script>

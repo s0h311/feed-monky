@@ -105,6 +105,12 @@
   </div>
 </template>
 
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Imprint',
+})
+</script>
+
 <style scoped>
 h3 {
   @apply text-lg font-semibold;

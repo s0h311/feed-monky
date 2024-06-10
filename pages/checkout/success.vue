@@ -22,6 +22,10 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Checkout successful',
+})
+
 onMounted(() => {
   setTimeout(() => navigateTo('/login'), 1000 * 5)
 })

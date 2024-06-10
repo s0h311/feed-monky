@@ -13,13 +13,13 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Account Settings',
+})
+
 definePageMeta({
   layout: 'dashboard-grid',
   middleware: ['auth'],
-})
-
-useSeoMeta({
-  title: 'Account Settings',
 })
 </script>
 

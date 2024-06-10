@@ -56,6 +56,10 @@
 <script setup lang="ts">
 import { z } from 'zod'
 
+useSeoMeta({
+  title: 'Signup',
+})
+
 definePageMeta({
   middleware: ['not-auth'],
 })

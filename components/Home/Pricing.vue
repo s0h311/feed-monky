@@ -35,7 +35,7 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
     ],
     isPremium: true,
     description: `First 20 feedbacks get summarized for free.
-    Starting from the 21st each feedback gets summarized for 0.05$.
+    Starting from the 21st each feedback gets summarized for 0.009$.
     You can switch to Starter plan anytime.
     `,
     priceId: 'price_1POgtuBzByKpK824CSOmHeUz',

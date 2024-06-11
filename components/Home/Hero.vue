@@ -1,9 +1,9 @@
 <template>
   <UISideBySideHero
-    title="Simple <mark>&nbsp;actions&nbsp;</mark> from long customer feedbacks"
+    title="Simple <mark>&nbsp;TODOs&nbsp;</mark> from long customer feedbacks"
     text="Try it for free. <u>No credit card</u> needed"
     :gains="[
-      'Feedbacks get automatically turned into actions 📋',
+      'Feedbacks get automatically turned into TODOs 📋',
       'See what your users value in matter of seconds 🤩',
       'Start shipping features faster 🚀',
       'Save time and money 💸',

@@ -14,7 +14,7 @@ const pains = [
 ]
 
 const gains = [
-  'Feedbacks get automatically turned into actions 📋',
+  'Feedbacks get automatically turned into TODOs 📋',
   'See what your users value in matter of seconds 🤩',
   'Start shipping features faster 🚀',
   'Save time and money 💸',

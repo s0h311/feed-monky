@@ -1,7 +1,10 @@
 <template>
   <footer class="bg-neutral p-7 text-sm text-base-300 desktop:pb-10 desktop:pt-20">
     <div class="flex flex-col justify-evenly gap-10 tablet:flex-row tablet:gap-0">
-      <slot />
+      <component
+        :is="logo"
+        v-bind="logoProps"
+      />
 
       <div class="mb-5 flex flex-row flex-wrap gap-x-20 gap-y-10 desktop:gap-32">
         <ul class="flex flex-col gap-3">
@@ -45,21 +48,7 @@
       </div>
     </div>
 
-    <ul
-      v-if="attributions"
-      class="flex flex-col gap-1 text-xs"
-    >
-      <p class="text-base-100">Attributions</p>
-
-      <NuxtLink
-        v-for="{ title, path, isExtern } in attributions"
-        :key="path"
-        :to="path"
-        :target="isExtern ? '_blank' : '_self'"
-      >
-        {{ title }}
-      </NuxtLink>
-    </ul>
+    <slot />
   </footer>
 </template>
 
@@ -79,7 +68,8 @@ type Props = {
   linksColumn1: LinkColumn
   linksColumn2: LinkColumn
   linksColumn3: LinkColumn
-  attributions?: Link[]
+  logo: unknown
+  logoProps: object
 }
 
 defineProps<Props>()

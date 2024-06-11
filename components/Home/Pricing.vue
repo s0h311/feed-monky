@@ -38,7 +38,7 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
     Starting from the 21st each feedback gets summarized for 0.009$.
     You can switch to Starter plan anytime.
     `,
-    priceId: 'price_1POgtuBzByKpK824CSOmHeUz',
+    priceId: 'price_1PQNk3BzByKpK8248oDvzkGT',
   },
 ]
 

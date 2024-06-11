@@ -25,7 +25,7 @@ export default class StripeCheckoutService {
       isMetered: false,
       subscriptionType: 'starter',
     },
-    price_1POgtuBzByKpK824CSOmHeUz: {
+    price_1PQNk3BzByKpK8248oDvzkGT: {
       isMetered: true,
       subscriptionType: 'pro',
     },
@@ -63,7 +63,7 @@ export default class StripeCheckoutService {
           subscriptionType,
         },
         payment_method_types: ['paypal'],
-        allow_promotion_codes: true
+        allow_promotion_codes: true,
       }
 
       if (isAddressRequired) {

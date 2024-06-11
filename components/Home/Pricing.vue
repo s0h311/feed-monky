@@ -14,17 +14,19 @@ import type { PricingOption } from '../UI/Pricing.vue'
 const pricingOptions: (PricingOption & { priceId: string })[] = [
   {
     title: 'Starter',
-    newPrice: 9.99,
+    oldPrice: 9.99,
+    newPrice: 8,
     paymentPeriod: 'monthly',
     paymentPeriodText: 'monthly',
     benefits: ['Continual improvements', '24/7 Customer service', 'Best for small businesses'],
     isPremium: false,
     description: `With this plan feedbacks don't get summarized.You can switch to Pro plan anytime.`,
-    priceId: 'price_1POgtqBzByKpK824CECRC3aM',
+    priceId: 'price_1PQNqGBzByKpK824WA1OuCOV',
   },
   {
     title: 'Pro <small> - pay as you go</small>',
-    newPrice: 14.99,
+    oldPrice: 14.99,
+    newPrice: 13,
     paymentPeriod: 'monthly',
     paymentPeriodText: 'monthly',
     benefits: [

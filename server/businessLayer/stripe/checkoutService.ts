@@ -21,7 +21,7 @@ export default class StripeCheckoutService {
   }
 
   private subscriptionDetails: Record<string, { isMetered: boolean; subscriptionType: Subscription['type'] }> = {
-    price_1POgtqBzByKpK824CECRC3aM: {
+    price_1PQNqGBzByKpK824WA1OuCOV: {
       isMetered: false,
       subscriptionType: 'starter',
     },

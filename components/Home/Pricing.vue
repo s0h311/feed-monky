@@ -20,7 +20,7 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
     paymentPeriodText: 'monthly',
     benefits: ['Continual improvements', '24/7 Customer service', 'Best for small businesses'],
     isPremium: false,
-    description: `With this plan feedbacks don't get summarized.You can switch to Pro plan anytime.`,
+    description: `With this plan feedbacks don't get turned into TODOs.You can switch to Pro plan anytime.`,
     priceId: 'price_1PQNqGBzByKpK824WA1OuCOV',
   },
   {
@@ -36,8 +36,8 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
       'Powered by cutting edge AI',
     ],
     isPremium: true,
-    description: `First 20 feedbacks get summarized for free.
-    Starting from the 21st each feedback gets summarized for 0.009$.
+    description: `First 20 feedbacks get turned into TODOs for free.
+    Starting from the 21st each feedback gets turned into TODOs for 0.009$.
     You can switch to Starter plan anytime.
     `,
     priceId: 'price_1PQNk3BzByKpK8248oDvzkGT',

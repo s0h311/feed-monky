@@ -1,5 +1,5 @@
 <template>
-  <UISideBySideHero
+  <UIHero
     title="Simple <mark>&nbsp;TODOs&nbsp;</mark> from long customer feedbacks"
     text="Try it for free. <u>No credit card</u> needed"
     :gains="[
@@ -9,13 +9,10 @@
       'Save time and money 💸',
     ]"
     :cta="{
-      title: 'Try it for free',
+      title: 'Try out for free',
       path: '/signup',
     }"
-    :customContent="[HomeProductHuntBadge]"
   />
 </template>
 
-<script setup lang="ts">
-import HomeProductHuntBadge from './ProductHuntBadge.vue'
-</script>
+<script setup lang="ts"></script>

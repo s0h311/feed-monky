@@ -3,7 +3,7 @@
     <div class="space-y-3">
       <h1 v-html="title" />
 
-      <h3>{{ text }}</h3>
+      <h3 v-html="text" />
 
       <ul
         v-if="gains"

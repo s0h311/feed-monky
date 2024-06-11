@@ -5,7 +5,7 @@
     <thead>
       <tr>
         <th>Feeback</th>
-        <th>Summary</th>
+        <th>TODO</th>
         <th>Customer E-Mail</th>
         <th>From</th>
       </tr>

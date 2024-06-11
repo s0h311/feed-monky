@@ -26,6 +26,11 @@
           {{ subscription.lastPayment ? formatDate(new Date(subscription.lastPayment)) : 'non yet' }}
         </td>
       </tr>
+
+      <tr v-if="subscription.type === 'trial'">
+        <th>trial ends at</th>
+        <td>{{ formatDate(addDays(new Date(subscription.createdAt), 14)) }}</td>
+      </tr>
     </table>
 
     <p class="max-w-md text-xs text-gray-500">
@@ -41,6 +46,8 @@
 </template>
 
 <script setup lang="ts">
+import { addDays } from 'date-fns'
+
 const subscription = (await useSubscription()).value!
 </script>
 

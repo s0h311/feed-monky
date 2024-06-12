@@ -1,8 +1,8 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
+    :width="getIconSize($props)"
+    :height="getIconSize($props)"
     viewBox="0 0 24 24"
   >
     <g
@@ -19,9 +19,7 @@
 </template>
 
 <script setup lang="ts">
-type Props = {
-  strokeColor?: string
-}
+import { getIconSize, type StrokeIconProps } from './utils'
 
-defineProps<Props>()
+defineProps<StrokeIconProps>()
 </script>

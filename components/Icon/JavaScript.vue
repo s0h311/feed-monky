@@ -1,8 +1,8 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    :width="md ? 30 : 24"
-    :height="md ? 30 : 24"
+    :width="getIconSize($props)"
+    :height="getIconSize($props)"
     viewBox="0 0 24 24"
   >
     <path
@@ -13,10 +13,7 @@
 </template>
 
 <script setup lang="ts">
-type Props = {
-  md?: boolean
-  fillColor?: string
-}
+import { getIconSize, type FillIconProps } from './utils'
 
-defineProps<Props>()
+defineProps<FillIconProps>()
 </script>

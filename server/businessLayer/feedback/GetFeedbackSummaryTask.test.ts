@@ -79,4 +79,9 @@ describe.shuffle('GetFeedbackSummaryTask', () => {
     // TODO fix this
     expect(mockMakeAssignFeedbackRequest).toHaveBeenCalledTimes(0)
   })
+
+  it('should only summarize the first 10 feedbacks when subscriptionType = starter', () => {
+    // TODO implement this
+    expect(1).toBe(0)
+  })
 })

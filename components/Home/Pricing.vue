@@ -15,12 +15,12 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
   {
     title: 'Starter',
     oldPrice: 9.99,
-    newPrice: 8,
-    paymentPeriod: 'monthly',
-    paymentPeriodText: 'monthly',
+    newPrice: 'free',
+    paymentPeriod: 'lifetime',
+    paymentPeriodText: 'forever',
     benefits: ['Continual improvements', '24/7 Customer service', 'Best for small businesses'],
     isPremium: false,
-    description: `With this plan feedbacks don't get turned into TODOs.You can switch to Pro plan anytime.`,
+    description: `Every month 10 feedbacks get turned into TODOs. You can switch to Pro plan anytime.`,
     priceId: 'price_1PQNqGBzByKpK824WA1OuCOV',
   },
   {
@@ -36,7 +36,7 @@ const pricingOptions: (PricingOption & { priceId: string })[] = [
       'Powered by cutting edge AI',
     ],
     isPremium: true,
-    description: `First 20 feedbacks get turned into TODOs for free.
+    description: `Every month first 20 feedbacks get turned into TODOs for free.
     Starting from the 21st each feedback gets turned into TODOs for 0.009$.
     You can switch to Starter plan anytime.
     `,

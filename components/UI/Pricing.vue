@@ -23,7 +23,8 @@
           </p>
 
           <div class="flex items-center gap-2">
-            <p class="text-3xl font-semibold">${{ option.newPrice }}</p>
+            <p class="text-3xl font-semibold">{{ option.newPrice === 'free' ? 'FREE' : '$' + option.newPrice }}</p>
+
             <p class="text-sm">/ {{ option.paymentPeriodText }}</p>
           </div>
         </div>
@@ -45,16 +46,14 @@
           {{ option.description }}
         </p>
 
-        <div>
-          <UICta
-            class="w-full"
-            :primary="option.isPremium"
-            :is-loading="isLoading === indexPricing"
-            @handle-click="handleSubmit(indexPricing)"
-          >
-            {{ ctaTitle }}
-          </UICta>
-        </div>
+        <UICta
+          class="w-full"
+          :primary="option.isPremium"
+          :is-loading="isLoading === indexPricing"
+          @handle-click="handleSubmit(indexPricing)"
+        >
+          {{ ctaTitle }}
+        </UICta>
       </div>
     </div>
   </div>
@@ -64,7 +63,7 @@
 export type PricingOption = {
   title: string
   oldPrice?: number
-  newPrice: number
+  newPrice: number | 'free'
   paymentPeriod: 'monthly' | 'yearly' | 'lifetime'
   paymentPeriodText: string
   benefits: string[]

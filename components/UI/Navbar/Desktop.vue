@@ -46,9 +46,9 @@ type Props = {
   additionalLinks?: Link[]
 }
 
-const { trackAndNavigate } = useTracking('Desktop Navbar')
-
 defineProps<Props>()
+
+const { trackAndNavigate } = useTracking('Desktop Navbar')
 </script>
 
 <style scoped>

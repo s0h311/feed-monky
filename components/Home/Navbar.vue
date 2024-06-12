@@ -1,19 +1,12 @@
 <template>
-  <HomeNavbarMobile
-    class="tablet:hidden"
-    :links
-    :additional-links
-  />
-
-  <HomeNavbarDesktop
-    class="max-[767px]:hidden desktop:px-[10%]"
+  <UINavbarDecider
     :links
     :additional-links
   />
 </template>
 
 <script setup lang="ts">
-import IconLogin from '../../Icon/Login.vue'
+import IconLogin from '../Icon/Login.vue'
 
 const user = useSupabaseUser()
 

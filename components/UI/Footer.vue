@@ -7,7 +7,10 @@
       />
 
       <div class="mb-5 flex flex-row flex-wrap gap-x-20 gap-y-10 desktop:gap-32">
-        <ul class="flex flex-col gap-3">
+        <ul
+          v-if="linksColumn1"
+          class="flex flex-col gap-3"
+        >
           <p class="text-base-100">{{ linksColumn1.title }}</p>
 
           <NuxtLink
@@ -20,7 +23,10 @@
           </NuxtLink>
         </ul>
 
-        <ul class="flex flex-col gap-3">
+        <ul
+          v-if="linksColumn2"
+          class="flex flex-col gap-3"
+        >
           <p class="text-base-100">{{ linksColumn2.title }}</p>
 
           <NuxtLink
@@ -33,7 +39,10 @@
           </NuxtLink>
         </ul>
 
-        <ul class="flex flex-col gap-3">
+        <ul
+          v-if="linksColumn3"
+          class="flex flex-col gap-3"
+        >
           <p class="text-base-100">{{ linksColumn3.title }}</p>
 
           <NuxtLink
@@ -65,9 +74,9 @@ type LinkColumn = {
 }
 
 type Props = {
-  linksColumn1: LinkColumn
-  linksColumn2: LinkColumn
-  linksColumn3: LinkColumn
+  linksColumn1?: LinkColumn
+  linksColumn2?: LinkColumn
+  linksColumn3?: LinkColumn
   logo: unknown
   logoProps: object
 }

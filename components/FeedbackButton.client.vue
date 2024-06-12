@@ -3,7 +3,7 @@
     class="feed-monky-button"
     @click="openDialog"
   >
-    Feedback
+    Click to try out
   </button>
 
   <dialog

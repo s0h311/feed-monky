@@ -1,13 +1,12 @@
 <template>
   <UIFooter
-    :links-column1="otherProdcutsLinks"
-    :links-column2="contactLinks"
-    :links-column3="legalLinks"
+    :links-column1="contactLinks"
+    :links-column2="legalLinks"
     :attributions="attributions"
     :logo="HomeLogo"
     :logoProps="{ light: true }"
   >
-    <div class="grid gap-10 tablet:flex">
+    <div class="mt-10 grid gap-10 tablet:flex">
       <ul
         v-if="attributions"
         class="flex flex-col gap-1 text-xs"
@@ -25,12 +24,13 @@
       </ul>
 
       <a
+        class="mt-auto"
         href="https://theresanaiforthat.com/ai/feed-monky/?ref=featured&v=1643174"
         target="_blank"
         rel="nofollow"
       >
         <NuxtImg
-          class="w-2/3 max-w-[300px] tablet:w-[300px]"
+          class="w-2/3 max-w-[200px] tablet:w-[200px]"
           src="https://media.theresanaiforthat.com/featured-on-taaft.png?width=300"
           width="300"
           height="auto"

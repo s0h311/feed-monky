@@ -1,25 +1,31 @@
 <template>
-  <div class="rounded-lg border-2 bg-[#0e1116] px-4 py-3">
-    <div class="flex items-center gap-5">
-      <button @click="visibleTab = 0">
-        <IconJavaScript
-          fill-color="fill-white"
-          md
-        />
+  <div class="rounded-lg bg-[#0e1116] px-3 py-2 shadow-lg">
+    <div class="flex items-center gap-2 text-sm text-white *:flex *:items-center *:gap-1 *:rounded *:px-1 *:py-0.5">
+      <button
+        :class="visibleTab === 0 ? 'bg-secondary' : 'hover:bg-secondary'"
+        @click="visibleTab = 0"
+      >
+        <IconJavaScript />
+
+        Vanilla
       </button>
 
-      <button @click="visibleTab = 1">
-        <IconVue
-          fill-color="fill-white"
-          md
-        />
+      <button
+        :class="visibleTab === 1 ? 'bg-secondary' : 'hover:bg-secondary'"
+        @click="visibleTab = 1"
+      >
+        <IconVue />
+
+        Vue
       </button>
 
-      <button @click="visibleTab = 2">
-        <IconReact
-          fill-color="fill-white"
-          md
-        />
+      <button
+        :class="visibleTab === 2 ? 'bg-secondary' : 'hover:bg-secondary'"
+        @click="visibleTab = 2"
+      >
+        <IconReact />
+
+        React
       </button>
 
       <!--
@@ -44,8 +50,8 @@
 const site = (await useSite()).value!
 const visibleTab = ref<number>(0)
 
-onMounted(() => updateVisibility())
-watch(visibleTab, () => updateVisibility())
+onMounted(updateVisibility)
+watch(visibleTab, updateVisibility)
 
 function updateVisibility(): void {
   const children = document.getElementById('codeGroup')!.children
@@ -65,11 +71,17 @@ function updateVisibility(): void {
 }
 
 function setSiteId(): void {
+  const currentTab = getCurrentTab()
+
+  const codeElement = currentTab.children.item(0)
+  codeElement!.innerHTML = codeElement!.innerHTML.replace('--SITEID--', site.id)
+}
+
+function getCurrentTab(): HTMLPreElement {
   const children = document.getElementById('codeGroup')!.children
   const tabs = [...children] as HTMLPreElement[]
   const currentTab = tabs[visibleTab.value]
 
-  const codeElement = currentTab.children.item(0)
-  codeElement!.innerHTML = codeElement!.innerHTML.replace('--SITEID--', site.id)
+  return currentTab
 }
 </script>

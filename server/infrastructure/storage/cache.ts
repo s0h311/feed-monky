@@ -5,3 +5,5 @@ export default defineNitroPlugin(() => {
 
   cache.mount('cache', memoryDriver())
 })
+
+export const useCache = () => useStorage('cache')

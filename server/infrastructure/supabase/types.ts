@@ -124,6 +124,7 @@ export type Database = {
           created_at: string
           id: number
           last_payment: string | null
+          monthly_usage: number
           payment_period: Database["public"]["Enums"]["payment_period"]
           site_id: string | null
           type: Database["public"]["Enums"]["type"]
@@ -132,6 +133,7 @@ export type Database = {
           created_at?: string
           id?: number
           last_payment?: string | null
+          monthly_usage?: number
           payment_period: Database["public"]["Enums"]["payment_period"]
           site_id?: string | null
           type: Database["public"]["Enums"]["type"]
@@ -140,6 +142,7 @@ export type Database = {
           created_at?: string
           id?: number
           last_payment?: string | null
+          monthly_usage?: number
           payment_period?: Database["public"]["Enums"]["payment_period"]
           site_id?: string | null
           type?: Database["public"]["Enums"]["type"]
@@ -277,6 +280,13 @@ export type Database = {
           email: string
         }
         Returns: string
+      }
+      update_monthly_usage: {
+        Args: {
+          site_id: string
+          usage: number
+        }
+        Returns: undefined
       }
     }
     Enums: {

@@ -4,6 +4,7 @@ import {
   mockAssignFeedbacksResponse,
   mockFeedbackSummaries,
   mockFeedbacksWithoutSummary,
+  mockSubscriptions,
 } from './mockData'
 import GetFeedbackSummaryTask from './GetFeedbackSummaryTask'
 import FeedbackSummaryDataService from '../../dataLayer/feedbackSummary/FeedbackSummaryDataService'
@@ -15,6 +16,7 @@ vi.mock('~/dataLayer/feedback/FeedbackDataService', () => {
   const FeedbackDataService = vi.fn()
   FeedbackDataService.prototype.getOnesWithoutSummary = vi.fn(() => mockFeedbacksWithoutSummary)
   FeedbackDataService.prototype.setFeedbackSummary = vi.fn()
+
   return { default: FeedbackDataService }
 })
 
@@ -31,6 +33,15 @@ vi.mock('~/dataLayer/feedbackSummary/FeedbackSummaryDataService', () => {
   }))
 
   return { default: FeedbackSummaryDataService }
+})
+
+vi.mock('~/server/dataLayer/subscription/SubscriptionDataService', () => {
+  const SubscriptionDataService = vi.fn()
+  SubscriptionDataService.prototype.getBySiteId = vi.fn((siteId: string) =>
+    mockSubscriptions.find((s) => s.siteId === siteId)
+  )
+
+  return { default: SubscriptionDataService }
 })
 
 vi.mock('../openai/OpenAIService', () => {
@@ -78,10 +89,5 @@ describe.shuffle('GetFeedbackSummaryTask', () => {
 
     // TODO fix this
     expect(mockMakeAssignFeedbackRequest).toHaveBeenCalledTimes(0)
-  })
-
-  it('should only summarize the first 10 feedbacks when subscriptionType = starter', () => {
-    // TODO implement this
-    expect(1).toBe(0)
   })
 })

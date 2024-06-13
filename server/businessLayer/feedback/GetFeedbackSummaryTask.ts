@@ -5,6 +5,8 @@ import { groupBy } from '~/utils/objectFns'
 import OpenAIService, { AssignFeedbacksForSiteRequest, AssignFeedbacksForSiteResponse } from '../openai/OpenAIService'
 import StripeUsageService from '../stripe/usageService'
 import SiteDataService from '~/server/dataLayer/site/SiteDataService'
+import logger from '~/utils/logger'
+import SubscriptionDataService from '~/server/dataLayer/subscription/SubscriptionDataService'
 
 type FeedbacksBySiteId = Record<Site['id'], Feedback[]>
 
@@ -22,7 +24,8 @@ export default class GetFeedbackSummaryTask {
     private feedbackSummaryDataService = new FeedbackSummaryDataService(),
     private openaiService = new OpenAIService(),
     private stripeUsageService = new StripeUsageService(),
-    private siteDateService = new SiteDataService()
+    private siteDateService = new SiteDataService(),
+    private subscriptionDataService = new SubscriptionDataService()
   ) {}
 
   public async execute(): Promise<void> {
@@ -42,11 +45,16 @@ export default class GetFeedbackSummaryTask {
     for (let siteId of siteIds) {
       const numberOfFeedbacksAssigned = groupedFeedbacksAndFeedbackSummaries[siteId].feedbacks.length
 
-      await this.stripeUsageService.execute(
-        'feedx_monthly_meter',
-        stripeCustomerIdBySiteId[siteId],
-        numberOfFeedbacksAssigned
-      )
+      const stripeCustomerId = stripeCustomerIdBySiteId[siteId]
+      if (stripeCustomerId === null) {
+        logger.error('Cannot register usage, stripeCustomerId is null', 'GetFeedbackSummaryTask - execute', false, {
+          siteId,
+        })
+        return
+      }
+
+      await this.subscriptionDataService.updateMonthlyUsageBySiteId(siteId, numberOfFeedbacksAssigned)
+      await this.stripeUsageService.execute('feedx_monthly_meter', stripeCustomerId, numberOfFeedbacksAssigned)
     }
   }
 
@@ -57,7 +65,24 @@ export default class GetFeedbackSummaryTask {
 
     const groupedFeedbacksAndFeedbackSummaries: AssignFeedbacksForSiteRequest = {}
 
+    const subscriptions = await this.subscriptionDataService.getBySiteIds(Object.keys(feedbacksBySiteId))
+
     for (const siteId in feedbacksBySiteId) {
+      const subscription = subscriptions.find((s) => s.siteId === siteId)
+
+      if (!subscription) {
+        throw logger.error(
+          'Could not find subscription',
+          'GetFeedbackSummaryTask - groupFeedbacksAndFeedbackSummaries',
+          true,
+          { siteId }
+        )
+      }
+
+      if (subscription.type === 'starter' && subscription.monthlyUsage >= 10) {
+        continue
+      }
+
       const feedbackSummaries = await this.feedbackSummaryDataService.getBySiteId(siteId)
       const feedbackSummaryTexts = feedbackSummaries.map(({ summary }) => summary)
 

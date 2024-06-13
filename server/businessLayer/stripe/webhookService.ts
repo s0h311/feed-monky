@@ -4,6 +4,7 @@ import logger from '~/utils/logger'
 import SubscriptionDataService from '../../dataLayer/subscription/SubscriptionDataService'
 import type { Site, Subscription } from '../../dataLayer/types'
 import type { Storage } from 'unstorage'
+import { useCache } from '../../infrastructure/storage/cache'
 
 type StripeWebhookServiceQuery = {
   rawEvent: string
@@ -24,7 +25,7 @@ export default class StripeWebhookService {
     this.stripe = new Stripe(this.getStripeSecret())
     this.accountDataService = new AccountDataService()
     this.subscriptionDataService = new SubscriptionDataService()
-    this.cache = useStorage('cache')
+    this.cache = useCache()
   }
 
   public async execute({

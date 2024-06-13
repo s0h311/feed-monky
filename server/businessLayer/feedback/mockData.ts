@@ -1,4 +1,5 @@
-import { Feedback, FeedbackSummary } from '../../dataLayer/types'
+import { addDays, startOfMonth } from 'date-fns'
+import { Feedback, FeedbackSummary, Subscription } from '../../dataLayer/types'
 import { FeedbacksAndFeedbackSummariesBySiteId } from './GetFeedbackSummaryTask'
 
 export const mockFeedback11: Feedback = {
@@ -51,6 +52,16 @@ export const mockFeedbackSummary112: FeedbackSummary = {
   summary: 'summary 112',
 }
 
+export const mockSubscription1: Subscription = {
+  id: 1,
+  siteId: 'site-1',
+  createdAt: '2024-05-01T16:30:00',
+  lastPayment: '2024-05-01T16:30:00',
+  type: 'starter',
+  paymentPeriod: 'lifetime',
+  monthlyUsage: 2,
+}
+
 // SITE 2
 
 export const mockFeedback21WithoutSummary: Feedback = {
@@ -69,6 +80,16 @@ export const mockFeedback22WithoutSummary: Feedback = {
   customerEmail: 'customer22@gmail.com',
   feedbackSummaryId: null,
   feedbackText: 'text 22',
+}
+
+export const mockSubscription2: Subscription = {
+  id: 2,
+  siteId: 'site-2',
+  createdAt: '2024-05-01T16:30:00',
+  lastPayment: '2024-05-01T16:30:00',
+  type: 'pro',
+  paymentPeriod: 'monthly',
+  monthlyUsage: 0,
 }
 
 // SITE 3
@@ -98,14 +119,81 @@ export const mockFeedbackSummary311: FeedbackSummary = {
   summary: 'summary 311',
 }
 
+export const mockSubscription3: Subscription = {
+  id: 3,
+  siteId: 'site-3',
+  createdAt: '2024-04-02T16:30:00',
+  lastPayment: '2024-04-03T16:30:00',
+  type: 'pro',
+  paymentPeriod: 'monthly',
+  monthlyUsage: 20,
+}
+
+// SITE 4
+export const mockFeedbackWithoutSummary41: Feedback = {
+  id: 41,
+  siteId: 'site-4',
+  createdAt: startOfMonth(new Date()).toISOString(),
+  customerEmail: 'customer41@gmail.com',
+  feedbackSummaryId: null,
+  feedbackText: 'text 41',
+}
+
+export const mockFeedbackWithoutSummary42: Feedback = {
+  id: 42,
+  siteId: 'site-4',
+  createdAt: startOfMonth(new Date()).toISOString(),
+  customerEmail: 'customer42@gmail.com',
+  feedbackSummaryId: null,
+  feedbackText: 'text 42',
+}
+
+export const mockFeedbackWithoutSummary43: Feedback = {
+  id: 43,
+  siteId: 'site-4',
+  createdAt: startOfMonth(new Date()).toISOString(),
+  customerEmail: 'customer43@gmail.com',
+  feedbackSummaryId: null,
+  feedbackText: 'text 43',
+}
+
+export const mockFeedback44: Feedback = {
+  id: 44,
+  siteId: 'site-4',
+  createdAt: startOfMonth(new Date()).toISOString(),
+  customerEmail: 'customer44@gmail.com',
+  feedbackSummaryId: 411,
+  feedbackText: 'text 44',
+}
+
+export const mockSubscription4: Subscription = {
+  id: 4,
+  siteId: 'site-4',
+  createdAt: startOfMonth(new Date()).toISOString(),
+  lastPayment: startOfMonth(new Date()).toISOString(),
+  type: 'starter',
+  paymentPeriod: 'lifetime',
+  monthlyUsage: 10,
+}
+
 export const mockFeedbacksWithoutSummary = [
   mockFeedback12WithoutSummary,
   mockFeedback13WithoutSummary,
   mockFeedback21WithoutSummary,
   mockFeedback22WithoutSummary,
+  mockFeedbackWithoutSummary41,
+  mockFeedbackWithoutSummary42,
+  mockFeedbackWithoutSummary43,
 ]
 
-export const mockFeedbackSummaries = [mockFeedbackSummary111, mockFeedbackSummary112, mockFeedbackSummary311]
+export const mockFeedbackSummaries = [
+  mockFeedbackSummary111,
+  mockFeedbackSummary112,
+  mockFeedbackSummary311,
+  mockFeedback44,
+]
+
+export const mockSubscriptions = [mockSubscription1, mockSubscription2, mockSubscription3, mockSubscription4]
 
 export const groupedFeedbacksAndFeedbackSummaries: FeedbacksAndFeedbackSummariesBySiteId = {
   'site-1': {

@@ -27,6 +27,17 @@ vi.mock('../../dataLayer/subscription/SubscriptionDataService', () => {
   return { default: SubscriptionDataService }
 })
 
+vi.mock('../../infrastructure/storage/cache', () => {
+  const map = new Map<string, string>()
+  const useCache = vi.fn()
+
+  useCache.prototype.hasItem = map.has
+  useCache.prototype.removeItem = map.delete
+  useCache.prototype.setItem = map.set
+
+  return { useCache }
+})
+
 describe.shuffle('StripeWebhookService', () => {
   let stripeWebhookService: StripeWebhookService
 

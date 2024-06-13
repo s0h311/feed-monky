@@ -1,7 +1,7 @@
 <template>
   <section class="grid items-center gap-20 text-center tablet:grid-cols-2">
     <div>
-      <h2 class="mb-14 max-w-md tablet:text-5xl">{{ title }}</h2>
+      <h2 class="mb-14 max-w-md font-semibold tablet:text-4xl">{{ title }}</h2>
 
       <p
         v-if="text"
@@ -11,7 +11,7 @@
     </div>
 
     <div class="w-full rounded-lg bg-neutral py-12 text-neutral-content">
-      <ul class="mx-auto grid w-fit grid-cols-2 gap-14">
+      <ul class="mx-auto grid w-fit grid-cols-3 gap-10 tablet:gap-14">
         <li
           class="grid place-items-center gap-2"
           v-for="({ icon, name }, index) in items"
@@ -24,7 +24,7 @@
             width="60"
           />
 
-          {{ name }}
+          <p class="self-end">{{ name }}</p>
         </li>
       </ul>
     </div>

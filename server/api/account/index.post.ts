@@ -1,10 +1,10 @@
-import AccountTrialService from '~/server/businessLayer/account/TrialService'
+import AccountService from '~/server/businessLayer/account/AccountService'
 
 export default defineEventHandler(async (event): Promise<void> => {
   const body = await readBody(event)
 
-  const accountTrialService = new AccountTrialService()
-  await accountTrialService.execute(body)
+  const accountService = new AccountService()
+  await accountService.execute(body)
 
   setResponseStatus(event, 201)
 })

@@ -35,9 +35,9 @@ export default class GetFeedbackSummaryTask {
       return
     }
 
-    const response = await this.createOpenAIRequest(groupedFeedbacksAndFeedbackSummaries)
-
-    await this.assignFeedbackSummariesToFeedbacks(response)
+    // TODO the AI needs more training.
+    // const response = await this.createOpenAIRequest(groupedFeedbacksAndFeedbackSummaries)
+    // await this.assignFeedbackSummariesToFeedbacks(response)
 
     const siteIds = Object.keys(groupedFeedbacksAndFeedbackSummaries)
     const stripeCustomerIdBySiteId = await this.siteDateService.getStripeCustomerIdBySiteIds(siteIds)

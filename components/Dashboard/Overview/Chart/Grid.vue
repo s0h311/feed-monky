@@ -6,7 +6,7 @@
       <DashboardOverviewChartFeedbacksInLast30Days />
     </div>
 
-    <div v-if="subscription.type !== 'starter'">
+    <div>
       <DashboardOverviewChartMostPopularFeedbackSummaries />
     </div>
 
@@ -15,10 +15,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const subscription = (await useSubscription()).value!
-</script>
 
 <style>
 canvas {

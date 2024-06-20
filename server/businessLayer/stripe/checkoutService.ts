@@ -62,7 +62,7 @@ export default class StripeCheckoutService {
           paymentPeriod,
           subscriptionType,
         },
-        payment_method_types: ['paypal'],
+        payment_method_types: ['paypal', 'card'],
         allow_promotion_codes: true,
       }
 

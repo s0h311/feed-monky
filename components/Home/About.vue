@@ -24,17 +24,9 @@
       text="Tons of creativity and passion. We love tech and the thrill."
       :people="[
         {
-          name: 'Soheil Nazari',
+          name: 'Soheil',
           image: 'picture-soheil-cropped.png',
           link: 'https://soheilnazari.de',
-        },
-        {
-          name: 'Maximilian Buchmann',
-          image: 'person-placeholder.png',
-        },
-        {
-          name: 'Fahram Tehrani',
-          image: 'person-placeholder.png',
         },
       ]"
     />

@@ -6,7 +6,7 @@
       {{ text }}
     </p>
 
-    <ul class="mx-auto grid w-fit gap-10 text-center tablet:grid-cols-3 tablet:gap-20">
+    <ul class="mx-auto grid w-fit gap-10 text-center tablet:grid-flow-col tablet:gap-20">
       <li
         v-for="({ name, role, image, link }, index) in people"
         :key="'person' + index"
